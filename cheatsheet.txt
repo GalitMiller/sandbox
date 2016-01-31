@@ -1,0 +1,9 @@
+OS=linux GOARCH=386 CGO_ENABLED=0 go build -o appname.linux appname.go
+
+git:
+git init
+git add
+git commit -m "msg here"
+git remote add origin <remote repository url from github>
+git remote -v
+git push origin master
