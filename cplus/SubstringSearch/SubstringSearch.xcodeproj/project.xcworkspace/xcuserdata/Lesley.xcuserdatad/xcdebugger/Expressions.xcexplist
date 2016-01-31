@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "rolling_hash(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, long, long):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "s[start-1] ">
+            </PersistentString>
+            <PersistentString
+               value = "s[start+length-1]">
+            </PersistentString>
+            <PersistentString
+               value = "int(r)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LesleySubstr::HashSearch(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, int&amp;):LesleySubstr.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "pattern">
+            </PersistentString>
+            <PersistentString
+               value = "i">
+            </PersistentString>
+            <PersistentString
+               value = "text.substr(i, pattern.length()) ">
+            </PersistentString>
+            <PersistentString
+               value = "text[11]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LesleySubstr::RollingRabinFingerprint(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, char, double, int&amp;):LesleySubstr.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(int)text[i]">
+            </PersistentString>
+            <PersistentString
+               value = "text.length()-1">
+            </PersistentString>
+            <PersistentString
+               value = "text[i]">
+            </PersistentString>
+            <PersistentString
+               value = "(int)previous_char">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LesleySubstr::RollingRabinFingerprint(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, char, long long, int&amp;):LesleySubstr.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(int)text[text.length()-1]">
+            </PersistentString>
+            <PersistentString
+               value = "(int)text[i]">
+            </PersistentString>
+            <PersistentString
+               value = "(long long)previous_char">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

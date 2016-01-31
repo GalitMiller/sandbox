@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "bool visited&lt;int&gt;(node&lt;int&gt;*):main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "void printDepthFirstSearch&lt;int&gt;(node&lt;int&gt;*):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "_map">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "int hashVal&lt;int&gt;(node&lt;int&gt;*):main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "void printBreadthFirstSearch&lt;int&gt;(node&lt;int&gt;*):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "_map">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

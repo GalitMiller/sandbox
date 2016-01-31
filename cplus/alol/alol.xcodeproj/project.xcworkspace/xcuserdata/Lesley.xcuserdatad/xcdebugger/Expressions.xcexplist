@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "my_atol_dec_portion(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, float&amp;):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "s[i]">
+            </PersistentString>
+            <PersistentString
+               value = "si">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "my_atol_dec_portion(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, long&amp;):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "s[i]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

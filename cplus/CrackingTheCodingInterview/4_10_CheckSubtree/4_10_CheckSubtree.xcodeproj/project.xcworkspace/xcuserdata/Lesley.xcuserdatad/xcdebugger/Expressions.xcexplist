@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "bool checkSubtree&lt;char&gt;(node&lt;char&gt;*, node&lt;char&gt;*, std::__1::list&lt;node&lt;char&gt;*, std::__1::allocator&lt;node&lt;char&gt;*&gt; &gt;):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "candidates">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
