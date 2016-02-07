@@ -7,3 +7,22 @@ git commit -m "msg here"
 git remote add origin <remote repository url from github>
 git remote -v
 git push origin master
+
+//to create a new working branch
+git checkout -b galit-working
+
+//to commit changes to local repository (all, msg)
+git commit -a -m "some comment"
+
+//to switch back to master
+git checkout master
+
+//merge changes from 'galit-working' into 'master'
+git merge galit-working
+
+//to delete 'galit-working'
+git branch -d galit-working
+
+//
+
+
