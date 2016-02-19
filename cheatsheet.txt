@@ -34,4 +34,6 @@ git fetch origin
 #view list of tags: git tag -l
 git checkout v1.6.0.1 
 
+#this was done on the test branch
+
 
