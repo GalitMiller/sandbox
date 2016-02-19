@@ -23,6 +23,15 @@ git merge galit-working
 //to delete 'galit-working'
 git branch -d galit-working
 
-//
+//mirror commands
+git remote -v
+git remote set-url origin git@vm162783.projects.local:bricata/bricata.git
+git remote set-url --push origin git@bitbucket.org:bricata/softserve-bricata.git
+git fetch origin
+git push --mirror
+
+git fetch origin
+#view list of tags: git tag -l
+git checkout v1.6.0.1 
 
 
