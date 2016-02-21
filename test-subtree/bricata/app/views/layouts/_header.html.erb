@@ -1,0 +1,91 @@
+<div id="header">
+	<div id="header-inside">
+		<div id="header-content">
+			<div id="header-top" class='container'>
+				<div id="logo" class='pull-left'>
+                    <%= link_to "Bricata", "http://www.bricata.com", :target => "_BLANK", :class => "Bricata" %>
+				</div>
+				
+				<div id="user-menu" class=''>
+					<ul>
+						<% if user_signed_in? %>
+							<li class="active">
+							        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+							        Welcome <%= current_user.name %>
+							</li>
+							<li>
+							    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+							    <%= link_to 'Settings', edit_user_registration_path %>
+							</li>
+							<li>
+							    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+							    <%= link_to 'Log out', destroy_user_session_path %>
+							</li>
+                        <% else %>
+							<li><a><%= link_to 'Log In', login_path %></a></li>
+                            <li><a><%= link_to 'Forgot Password?', new_password_path(resource_name) %></a></li>
+                        <% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="menu">
+
+			<ul class='navigation container'>
+
+				<% if user_signed_in? %>
+					<li class='item'><%= link_to "Dashboard", dashboard_path %></li>
+					<% if current_user.admin %>
+						<li class='administration dropdown' role='presentation'>
+							<a href='#' class='dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' role='button' aria-expanded='false'>
+								Administration
+								<span class='glyphicon glyphicon-triangle-bottom' aria-hidden='true'></span>
+							</a>
+							<ul id="admin-menu" class='dropdown-menu' role='menu' aria-labelledby='drop6'>
+							  <li role='presentation'><%= link_to "General Settings", settings_path, :role => 'menuitem' %></li>
+							  <li role='presentation'><%= link_to 'Classifications', classifications_path, :role => 'menuitem' %></li>
+							  <li role='presentation'><%= link_to 'Lookup Sources', lookups_path, :role => 'menuitem' %></li>
+							  <li role='presentation'><%= link_to 'Asset Name Manager', asset_names_path, :role => 'menuitem' %></li>
+							  <li role='presentation'><%= link_to 'Severities', severities_path, :role => 'menuitem' %></li>
+							  <li role='presentation'><%= link_to 'Users', users_path, :role => 'menuitem' %></li>
+							  <li role='presentation'><%= link_to "Worker & Job Queue", jobs_path, :role => 'menuitem'%>
+							  </li>
+							</ul>
+						</li>
+					<% end %>
+					
+					<li class='item'><%= link_to "Sensors", sensors_path %></li>
+
+					<li class='administration dropdown' role='presentation'>
+						<a href='#' class='dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' role='button' aria-expanded='false'>
+							Signatures
+							<span class='glyphicon glyphicon-triangle-bottom' aria-hidden='true'></span>
+						</a>
+						<ul id="signatures-menu" class='dropdown-menu' role='menu' aria-labelledby='drop6'>
+							<li role='presentation'><%= link_to 'Signatures',  ext_signatures_path, :role => 'menuitem' %></li>
+							<li role='presentation'><%= link_to 'Report',      signatures_path, :role => 'menuitem' %></li>
+						  	<li role='presentation'><%= link_to 'Categories',  ext_categories_path, :role => 'menuitem' %></li>
+						  	<li role='presentation'><%= link_to 'Class Types', ext_classtypes_path, :role => 'menuitem' %></li>
+						  	<li role='presentation'><%= link_to 'Severities',  ext_severities_path, :role => 'menuitem' %></li>
+						  	<li role='presentation'><%= link_to 'References',  ext_references_path, :role => 'menuitem' %></li>
+						</ul>
+					</li>
+
+					<li class='item'><%= link_to "Policies", policies_path %></li>
+                    <li class='item'><%= link_to "Events", sessions_events_path %></li>
+					<li class='item'><%= link_to "Search", search_path %></li>
+					
+					<% unless Bricata::Worker.running? %>
+						<li class='menu-error right <%= current_user.admin ? 'admin' : '' %>'>
+							  <%= image_tag('icons/note-icon-white.png') %>
+							  The Bricata worker is not currently running.
+						</li>
+					<% end %>					
+				<% end %>				
+			</ul>
+
+		</div>
+		
+	</div>
+</div>

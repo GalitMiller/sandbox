@@ -1,0 +1,11 @@
+
+[Unit]
+Description=Check MySQL database before MySQL startup
+After=mysqld.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bpac-mysql-mysqlcheck.sh
+
+[Install]
+WantedBy=multi-user.target

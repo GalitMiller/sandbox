@@ -1,0 +1,202 @@
+<% if @src_metrics.empty? %>
+	<div id='source-ips'>
+		<div id='source-ips-graph' style='' class='no-pie-data'>
+			<div class='no-grafh-data'>
+                <svg width="100%" height="100%">
+                    <circle cx="130" cy="150" r="100" fill="#F5F5F5" />
+                    <text x="50%" y="160" text-anchor="middle" fill="#A3A3A3" font-size = "20">NO DATA AVAILABLE</text>
+                    <text x="50%" y="275" text-anchor="middle" fill="#A3A3A3" font-size = "16" font-family = "OpenSansRegular">There are no Sources for </text>
+                    <text x="50%" y="300" text-anchor="middle" fill="#A3A3A3" font-size = "16" font-family = "OpenSansRegular">
+                        <% if @range == 'last_24' %>last 24 hours<% end %>
+                        <% if @range == 'today'%>today<% end %>
+                        <% if @range == 'yesterday'%>yesterday<% end %>
+                        <% if @range == 'last_week'%>last week<% end %>
+                        <% if @range == 'week'%>week<% end %>
+                        <% if @range == 'last_month'%>last month<% end %>
+                        <% if @range == 'month'%>last month<% end %>
+                        <% if @range == 'quarter'%>quarter<% end %>
+                        <% if @range == 'year'%>year<% end %>
+                    </text>
+                </svg>
+			</div>
+		</div>
+	</div>
+<% else %>
+	<div id='source-ips'>
+		<div id='source-ips-graph' style='' class='no-pie-data'></div>
+		<div id='source-ips-graph-show-all'>
+			<a show-all='true'>&nbsp;</a>
+		</div>
+	</div>
+	<% content_for :footer do %>
+		<script type="text/javascript">
+		chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'source-ips-graph',
+                width: 253
+            },
+            exporting: {
+                enabled: false
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                formatter: function () {
+                    return this.point.name.substring(0, 20) + "<br><b>" + this.y + " sessions</b>"
+                }
+            },
+            plotOptions: {
+                pie: {
+                    events: {
+                        click: function(event) {
+                                          HCloader(document.getElementById('source-ips-graph').firstChild.id);
+                                          document.location = <%= Bricata::CONFIG[:baseuri] %>'/results?title=Source Address '+event.point.name+'&match_all=true&search%5B0%5D%5Bcolumn%5D=source_ip&search'+
+                                            '%5B0%5D%5Benabled%5D=true&search%5B0%5D%5Boperator%'+
+                                            '5D=is&search%5B0%5D%5Bvalue%5D='+event.point.name+'&search%'+
+                                            '5B1%5D%5Bcolumn%5D=start_time&search%5B1%5D%5Benabl'+
+                                            'ed%5D=true&search%5B1%5D%5Boperator%5D=gte&search%5B'+
+                                            '1%5D%5Bvalue%5D=<%= @start_time.utc.strftime("%Y-%m-%d %H:%M:%S") %>&search%5B2%5D%5B'+
+                                            'column%5D=end_time&search%5B2%5D%5Benabled%5D=true&'+
+                                            'search%5B2%5D%5Boperator%5D=lte&search%5B2%5D%5Bvalu'+
+                                            'e%5D=<%= @end_time.utc.strftime("%Y-%m-%d %H:%M:%S") %>'+
+											'&authenticity_token='+csrf;
+                                         }
+                    },
+                    showInLegend: true,
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+						enabled: true,
+                    	text: this.percentage,
+                        distance: -30,
+                        formatter: function(){
+                        	if (this.percentage > 4) {
+                            	return Math.round(this.percentage) + "%";
+                            }
+                        },
+                        style: {
+                        	fontWeight: 'bold',
+                            color: 'white',
+                            textShadow: '0px 1px 2px black'
+                        }
+                    }
+                }
+            },
+            legend: {
+				enabled: true,
+				lineHeight: 18,
+                y: 110,
+                itemStyle: { "color": "#999999", "fontSize": "12px", "fontWeight": "200", "cursor": "pointer"},
+                labelFormatter: function () {
+                        return "<pre>"+this.name.substring(0, 20) + "       " + Math.round(this.percentage) + "%" + "       " + this.y + " sessions</pre>"
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Unique Source Addresses',
+				innerSize: '40%',
+				size: 220,
+                center: [100, 100],
+				point: {
+                	events: {
+                    	legendItemClick: function () {
+						HCloader(document.getElementById('source-ips-graph').firstChild.id);
+						document.location = <%= Bricata::CONFIG[:baseuri] %>'/results?title=Source Address '+this.name+'&match_all=true&search%5B0%5D%5Bcolumn%5D=source_ip&search'+
+                                            '%5B0%5D%5Benabled%5D=true&search%5B0%5D%5Boperator%'+
+                                            '5D=is&search%5B0%5D%5Bvalue%5D='+this.name+'&search%'+
+                                            '5B1%5D%5Bcolumn%5D=start_time&search%5B1%5D%5Benabl'+
+                                            'ed%5D=true&search%5B1%5D%5Boperator%5D=gte&search%5B'+
+                                            '1%5D%5Bvalue%5D=<%= @start_time.utc.strftime("%Y-%m-%d %H:%M:%S") %>&search%5B2%5D%5B'+
+                                            'column%5D=end_time&search%5B2%5D%5Benabled%5D=true&'+
+                                            'search%5B2%5D%5Boperator%5D=lte&search%5B2%5D%5Bvalu'+
+                                            'e%5D=<%= @end_time.utc.strftime("%Y-%m-%d %H:%M:%S") %>'+
+											'&authenticity_token='+csrf;
+                        	return false;
+						}
+                    }
+                },
+                data: [ <% @src_metrics.each do |key, value | %> ['<%= key.to_s %>', <%= value %> ], <% end %> ]
+            }]
+        });
+            var sourceips = $('#source-ips'); //
+
+            function defaultSvgContainerPositionSourceips(selector){
+                    if ($(selector).find('a').attr('show-all')){
+                        if(sourceips.find('.highcharts-legend-item').length > 4){
+                            $(selector).html('<a show-all="">Show All <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>');
+                        }
+                        $(selector).css({'top': '350px'});
+                        sourceips.find('#source-ips-graph').css({'height': '370px'})
+                            .find('.highcharts-container').css({'height': '355px'});
+                        sourceips.find('svg').attr({height:'100%'})
+                            .find('rect .highcharts-background').attr({height:'100%'});
+                        sourceips.find('.highcharts-legend').attr({transform: 'translate(5,249)'});
+
+                    }else{
+                        $(selector).html('<a show-all="true">Hide <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>')
+                            .css({'top': (sourceips.find('.highcharts-legend-item').length - 4)*18 + 348 + 'px'});
+                        sourceips.css({'height': 'auto'})
+                            .find('#source-ips-graph').css({'height': (sourceips.find('.highcharts-legend-item').length - 4)*18 + 368 + 'px'})
+                            .find('.highcharts-container').css({'height': (sourceips.find('.highcharts-legend-item').length - 4)*18 + 360 + 'px'});
+                        sourceips.find('svg').attr({height:'100%'})
+                            .find('rect .highcharts-background').attr({height:'100%'});
+                        sourceips.find('.highcharts-legend').attr({transform: 'translate(5,249)'});
+                    }
+                    if (navigator.userAgent.indexOf('Safari/') >=0  || navigator.userAgent.indexOf('Firefox/') >=0){
+                        var yTranslation = 3,
+                            gross = 18,
+                            transform = 0;
+                        sourceips.find('.highcharts-legend').find('.highcharts-legend-item').each(function(i){
+                            transform =  yTranslation+i*gross;
+                            $(this).attr({'transform': 'translate(8,' + transform + ')'});
+                        });
+
+                        var highchartsContainer = sourceips.find('.highcharts-container');
+                        var timer = setInterval(function(){
+                            if (highchartsContainer.css('opacity') !== '1'){
+                                $('.cover-loader').each(function(){
+                                    if ($(this).text() == 'Loading...') {
+                                        $(this).remove();
+                                    }
+                                });
+                                highchartsContainer.css({'opacity': '1'});
+                            }
+                        }, 1000);
+    				}
+				}
+
+				sourceips.find('defs').remove();
+				sourceips.find('.highcharts-legend g[visibility="visible"]').remove();
+
+                if (navigator.userAgent.indexOf('Firefox/') >=0) {
+                    setTimeout(function(){
+                        defaultSvgContainerPositionSourceips('#source-ips-graph-show-all');
+                    }, 2000);
+                }else{
+                    defaultSvgContainerPositionSourceips('#source-ips-graph-show-all');
+                }
+
+				sourceips.on('click', '#source-ips-graph-show-all', function(){
+                    defaultSvgContainerPositionSourceips('#source-ips-graph-show-all');
+                });
+
+				$(window).on('resize',function(){
+                    var showAllSource = '#source-ips-graph-show-all',
+				        selectorSource = $(showAllSource).find('a');
+
+				    if (selectorSource.attr('show-all')){
+				        selectorSource.attr({'show-all': ''})
+				    } else {
+				        selectorSource.attr({'show-all': 'true'})
+				    }
+				    setTimeout(function(){
+				        defaultSvgContainerPositionSourceips(showAllSource)
+				    }, 100);
+				});
+		</script>
+	<% end %>
+<% end %>

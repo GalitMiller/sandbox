@@ -1,0 +1,21 @@
+<%= title "Listing Sessions <i>(#{number_with_delimiter(@events.pager.total)} unique unclassified sessions)</i>".html_safe, 'Listing Sessions' do -%>
+
+	<%= render :partial => 'events/menu' %>
+
+
+
+    <%= menu_item "<span class='glyphicon glyphicon glyphicon-align-left' aria-hidden='true'></span> All Unclassified Events".html_safe, events_path, nil, {} %>
+
+
+<%- end -%>
+
+<%= render :partial => 'events/events' %>
+
+<script type="text/javascript" charset="utf-8">
+  Bricata.sessionViewUpdate({
+    page: <%= params[:page].to_i %>,
+    sort: "<%= params[:sort] %>",
+    direction: "<%= params[:direction] %>",
+    timestamp: "<%= params[:_] %>"
+});
+</script>

@@ -1,0 +1,31 @@
+<%= stylesheet 'jquery' %>
+<%= javascript :header, 'daterangepicker' %>
+
+<% content_for :footer do %>
+
+  <script type="text/javascript">
+
+    var rule = new SearchRule('<%= escape_javascript @json.html_safe %>');
+    rule.searchUI({
+      cssClass: "submit-search",
+      buttonTitle: "Submit Search"
+    });
+rule.add();
+rule.add();
+rule.add();
+
+	</script>
+
+<% end %>
+
+<%= title "Bricata Advanced Search" do %>
+
+    <%= menu_item "<span class='glyphicon glyphicon glyphicon-save-file' aria-hidden='true'></span> Save Current Search".html_safe, new_saved_search_path, nil, { :class => "snorbybox", :id => "saveCurrentSearch" } %>
+
+    <%= menu_item "<span class='glyphicon glyphicon glyphicon-open-file' aria-hidden='true'></span> View Saved Searches".html_safe, saved_searches_path, nil, { :id => "openCurrentSearch" } %>
+
+    <%= menu_item "<span class='glyphicon glyphicon glyphicon-erase' aria-hidden='true'></span> Reset Search Form".html_safe, '#', nil, {:class => 'reset-search-form'} %>
+
+
+<% end %>
+
