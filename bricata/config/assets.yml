@@ -1,0 +1,32 @@
+package_assets: on
+compress_assets: on
+gzip_assets: on
+javascript_compressor: yui
+embed_assets: off
+
+javascripts:
+  bricata:
+    - public/javascripts/jquery-1.11.2.js
+    - public/javascripts/jquery-ui.js
+    - public/javascripts/easing.js
+    - public/javascripts/hotkeys.js
+    - public/javascripts/rails.js
+    - public/javascripts/filter.js
+    - public/javascripts/limp.js
+    - public/javascripts/chosen.js
+    - public/javascripts/handlebars.js
+    - public/javascripts/templates.js
+    - public/javascripts/growl.js
+    - public/javascripts/colorpicker.js
+    - public/javascripts/editable.js
+    - public/javascripts/scrollto.js
+    - public/javascripts/validate.js
+    - public/javascripts/tipsy.js
+    - public/javascripts/bootstrap.js
+    - public/javascripts/bricata.js
+
+stylesheets:
+  bricata:
+    - public/stylesheets/grid.css
+    - public/stylesheets/bootstrap.css
+    - public/stylesheets/bricata.css

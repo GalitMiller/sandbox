@@ -1,0 +1,11 @@
+
+[Unit]
+Description=Check MySQL database before MySQL startup
+Before=mysqld.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bpac-mysql-myisamcheck.sh
+
+[Install]
+WantedBy=multi-user.target

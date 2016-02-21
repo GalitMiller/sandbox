@@ -1,0 +1,8 @@
+<%= title "Severity Settings" do -%>
+
+	<%= menu_item "<span class='glyphicon glyphicon glyphicon-plus' aria-hidden='true'></span> Add Severity".html_safe, new_severity_path %>
+	<%= render :partial => 'settings/menu' %>
+	
+<%- end -%>
+
+<%= render :partial => 'severities/severities' %>

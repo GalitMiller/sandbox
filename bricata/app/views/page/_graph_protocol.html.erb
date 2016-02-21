@@ -1,0 +1,85 @@
+<% if @tcp.join(', ').empty? && @udp.join(', ').empty? && @icmp.join(', ').empty? %>
+	<div id='protocol-graph' class='dashboard-graph no-pie-data' style="display: none;">
+	  <span>Protocol Count<br>vs<br>Time</span>
+	</div>
+<% else %>
+<% content_for :footer do %>
+	<script type="text/javascript">
+		chart = new Highcharts.Chart({
+			chart: {
+		         renderTo: 'protocol-graph',
+		         height: 300,
+                 width: 815,
+                 marginLeft: 250,
+                 marginTop: 20
+		    },
+          	credits: {
+            	enabled: false
+          	},
+		    title: {
+		    	text: '<b>Protocol Count</b><br><b>vs</b><br><b>Time</b>',
+		        align: 'center',
+                y: 75,
+                x: -320
+		    },
+		    xAxis: {
+          		categories: [<%= @axis.try(:html_safe) %>],
+		        title: {
+					margin: 10,
+					<% if (@range == 'year' || @range == 'quarter') %>
+						text: 'Month of Year',
+					<% elsif (@range == 'month' || @range == 'last_month') %>
+						text: 'Date of Month',
+					<% elsif (@range == 'week' || @range == 'last_week') %>
+						text: 'Date Of Week',
+                	<% elsif @range == 'last_24' %>
+                  		text: 'Last 24 Hours',
+					<% else %>
+						text: 'Hour of Day'
+					<% end %>
+		        }
+		    },
+		    yAxis: {
+		        title: {
+		        	enabled: false
+		        },
+		        min: 0,
+		        plotLines: [{
+		        	value: 0,
+		            width: 1,
+		            color: '#808080'
+		    	}]
+		    },
+		    tooltip: {
+		    	formatter: function() {
+		        	return '<b>'+ this.series.name +'</b><br/>'+ this.y + ' Events';
+		        }
+		    },
+		    legend: {
+		    	floating: true,
+                layout: 'vertical',
+                align: 'center',
+                x: -320,
+                y: -70,
+                borderWidth: 0,
+                borderRadius: 0,
+                borderColor: '#ddd',
+                backgroundColor: '#fff'
+		    },
+		    series: [{
+						name: 'TCP',
+						data: [<%= @tcp.join(', ') %>]
+					},{
+						name: 'UDP',
+						data: [<%= @udp.join(', ') %>]
+					},{
+						name: 'ICMP',
+						data: [<%= @icmp.join(', ') %>]
+					}]
+		   });
+
+
+	</script>
+<% end %>
+	<div id='protocol-graph' class='dashboard-graph' style="display: none;"></div>
+<% end %>
