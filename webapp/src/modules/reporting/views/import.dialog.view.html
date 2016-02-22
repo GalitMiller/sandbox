@@ -1,0 +1,61 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="closeImportModal()"
+                title="{{::labels.title | i18next}}">
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>
+        <h4 class="modal-title">{{::labels.title | i18next}}</h4>
+    </div>
+    <div class="modal-body" loading-container="states.isLoading">
+
+        <form class="form-horizontal" ng-if="!states.isErrorReceived">
+
+            <div class="form-group">
+                <label class="col-md-2 control-label input-label import-file-select-lbl">
+                    {{::'common.reference' | i18next}}
+                </label>
+                <div class="col-md-10">
+                    <div class="well import-file-select-container">
+                        <file-select></file-select>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div ng-show="states.isErrorReceived" ng-scrollable="{scrollX:'none'}" class="preview-signatures-scrollbar">
+            <div class="well" ng-repeat="failed in failures track by $index">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="rule-container">
+                        <span class="preview-rule-txt">
+                            {{::failed.source}}
+                        </span>
+                        </div>
+
+                        <div>
+                            <h5 ng-repeat="error in ::failed.messages track by $index">
+                            <span class="txt-error">
+                                <span class="glyphicon glyphicon-remove-sign import-info-icon"></span>
+                                {{::error}}
+                            </span>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-default"
+                ng-click="closeImportModal()">{{::'generalElements.cancel' | i18next}}</button>
+
+        <button ng-if="!states.isErrorReceived" class="btn btn-primary" ng-click="processImport()">
+            {{::'generalElements.import' | i18next}}
+        </button>
+
+    </div>
+</div>

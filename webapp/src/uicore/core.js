@@ -1,0 +1,23 @@
+angular.module("bricata.uicore",
+    [
+        "bricata.uicore.templates",
+        "bricata.uicore.alertmsg",
+        "bricata.uicore.broadcast",
+        "bricata.uicore.colorpicker",
+        "bricata.uicore.datepicker",
+        "bricata.uicore.errormsg",
+        "bricata.uicore.fileselect",
+        "bricata.uicore.grid",
+        "bricata.uicore.ipinput",
+        "bricata.uicore.keywordstext",
+        "bricata.uicore.labletrunc",
+        "bricata.uicore.modal",
+        "bricata.uicore.notification",
+        "bricata.uicore.numericinput",
+        "bricata.uicore.preloader",
+        "bricata.uicore.scrollspy",
+        "bricata.uicore.searchlist",
+        "bricata.uicore.select",
+        "bricata.uicore.topcheckbox",
+        "bricata.uicore.validation"
+    ]);

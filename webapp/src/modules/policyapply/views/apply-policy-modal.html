@@ -1,0 +1,69 @@
+<div ng-show="!states.isSubModalShown">
+<div class="modal-header">
+    <button type="button" class="close" ng-click="closeApplyPolicyModal()"
+            title="{{::'common.closeTxt' | i18next}}">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <h4 class="modal-title">
+        {{::'applyPolicyModal.applyPolicyTitle' | i18next}}
+    </h4>
+</div>
+<div class="modal-steps center-text">
+    <div class="modal-step"
+         ng-click="goToSensorSelection()"
+         ng-class="{active: currentStep.first}" ng-disabled="states.isDataLoading">
+        <span class="step-number">1</span>
+        <span class="step-label">{{::'applyPolicyModal.selectSensorTitle' | i18next}}</span>
+    </div>
+    <div class="modal-step" id="secondStepLnk"
+         ng-click="goToPolicySelection(currentStep.third)"
+         ng-class="{active: currentStep.second}" ng-disabled="states.isDataLoading">
+        <span class="step-number">2</span>
+        <span class="step-label">{{::'applyPolicyModal.selectPoliciesTitle' | i18next}}</span>
+    </div>
+    <div class="modal-step" id="thirdStepLnk"
+         ng-click="goToDiffManagement()"
+         ng-class="{active: currentStep.third}" ng-disabled="states.isDataLoading">
+        <span class="step-number">3</span>
+        <span class="step-label">{{::'applyPolicyModal.conflictsAndDiffTitle' | i18next}}</span>
+    </div>
+</div>
+<div class="modal-body">
+
+    <sensor-select ng-if="currentStep.first" loading-container="states.isDataLoading"
+                   loading-progress="model.loadingInterfacesAndApplications.progress"></sensor-select>
+
+    <policy-select ng-if="currentStep.second" loading-container="states.isDataLoading"></policy-select>
+
+    <manage-differences ng-show="currentStep.third" loading-container="states.isDataLoading"></manage-differences>
+
+</div>
+<div class="modal-footer" tooltip="{{applyPolicyFormError | i18next}}" tooltip-placement="right">
+    <button ng-show="currentStep.first || currentStep.third" class="btn btn-default" ng-click="closeApplyPolicyModal()"
+            ng-disabled="states.isDataLoading">
+        {{::'generalElements.cancel' | i18next}}
+    </button>
+    <button ng-show="currentStep.first" class="btn btn-primary" ng-click="goToPolicySelection()"
+            ng-disabled="states.isDataLoading">
+        {{::'generalElements.nextStep' | i18next}}
+    </button>
+
+    <button ng-show="currentStep.second" class="btn btn-default" ng-click="goToSensorSelection()"
+            ng-disabled="states.isDataLoading">
+        {{::'generalElements.prevStep' | i18next}}
+    </button>
+    <button ng-show="currentStep.second" class="btn btn-primary" ng-click="goToDiffManagement()"
+            ng-disabled="states.isDataLoading">
+        {{::'generalElements.nextStep' | i18next}}
+    </button>
+
+    <button ng-show="currentStep.third" class="btn btn-default" ng-click="goToPolicySelection()"
+            ng-disabled="states.isDataLoading">
+        {{::'generalElements.prevStep' | i18next}}
+    </button>
+    <button id="applyBtn" ng-show="currentStep.third" class="btn btn-primary" ng-click="submitDifferences()"
+            ng-disabled="states.isDataLoading">
+        {{::'applyPolicyModal.applyPolicyBtn' | i18next}}
+    </button>
+</div>
+</div>

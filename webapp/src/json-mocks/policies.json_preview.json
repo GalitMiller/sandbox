@@ -1,0 +1,126 @@
+{
+    "num_results": 105,
+    "page": 1,
+    "total_pages": 2,
+    "objects": [
+        {
+            "id": 1,
+            "name": "First signature long long long long long long long long long long dhaskjhfdskjhf",
+            "rule": "pass tcp $HOME_NET 10000 -> $EXTERNAL_NET any (msg:\"ET_CHAT_IRC_USER_command_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long_long\"; flow:established,to_server; flowbits:set,ET.Tomcat.login.attempt; dsize:<135; content:\"THCTHCTHCTHCTHC|20 20 20|\"; reference:bid,6241; reference:cve,2002-1317; reference:secunia,11188; classtype:not-suspicious; priority:1; sid:2015042300; gid:1; rev:1;)",
+            "severity": {
+                "bg_color": "#F00",
+                "id": 1,
+                "is_predefined": true,
+                "name": "High fhjgsfkjhvgkjsdc dv ljdhasgfljhsdgflfj vdhjagfcvoljhsgfhjas vdvhfuvgadhfjvgdsljbvh vdhsbvgfljdshfvgd",
+                "priority": 1,
+                "text_color": "#FFF"
+            },
+            "category": {
+                "id": 1,
+                "name": "Primary category"
+            }
+        },
+        {
+            "id": 2,
+            "name": "First signature second  fjhskjfhs dsbhfkljhsklf fjhaskjfhl fghaskjhflhasdf",
+            "rule": "pass tcp $HOME_NET 10000 -> $EXTERNAL_NET any (msg:\"ET CHAT IRC USER command\"; flow:established,to_server; flowbits:set,ET.Tomcat.login.attempt; dsize:<135; content:\"THCTHCTHCTHCTHC|20 20 20|\"; reference:bid,6241; reference:cve,2002-1317; reference:secunia,11188; classtype:not-suspicious; priority:1; sid:2015042300; gid:1; rev:1;)",
+            "severity": {
+                "bg_color": "#F00",
+                "id": 1,
+                "is_predefined": true,
+                "name": "High",
+                "priority": 1,
+                "text_color": "#FFF"
+            },
+            "category": {
+                "id": 1,
+                "name": "Primary category"
+            }
+        },
+        {
+            "id": 3,
+            "name": "First signature",
+            "rule": "pass tcp $HOME_NET 10000 -> $EXTERNAL_NET any (msg:\"ET CHAT IRC USER command\"; flow:established,to_server; flowbits:set,ET.Tomcat.login.attempt; dsize:<135; content:\"THCTHCTHCTHCTHC|20 20 20|\"; reference:bid,6241; reference:cve,2002-1317; reference:secunia,11188; classtype:not-suspicious; priority:1; sid:2015042300; gid:1; rev:1;)",
+            "severity": {
+                "bg_color": "#F00",
+                "id": 1,
+                "is_predefined": true,
+                "name": "High",
+                "priority": 1,
+                "text_color": "#FFF"
+            },
+            "category": {
+                "id": 1,
+                "name": "Primary category"
+            }
+        },
+        {
+            "id": 4,
+            "name": "First signature",
+            "rule": "pass tcp $HOME_NET 10000 -> $EXTERNAL_NET any (msg:\"ET CHAT IRC USER command\"; flow:established,to_server; flowbits:set,ET.Tomcat.login.attempt; dsize:<135; content:\"THCTHCTHCTHCTHC|20 20 20|\"; reference:bid,6241; reference:cve,2002-1317; reference:secunia,11188; classtype:not-suspicious; priority:1; sid:2015042300; gid:1; rev:1;)",
+            "severity": {
+                "bg_color": "#F00",
+                "id": 1,
+                "is_predefined": true,
+                "name": "High",
+                "priority": 1,
+                "text_color": "#FFF"
+            },
+            "category": {
+                "id": 1,
+                "name": "Primary category"
+            }
+        },
+        {
+            "id": 5,
+            "name": "First signature",
+            "rule": "pass tcp $HOME_NET 10000 -> $EXTERNAL_NET any (msg:\"ET CHAT IRC USER command\"; flow:established,to_server; flowbits:set,ET.Tomcat.login.attempt; dsize:<135; content:\"THCTHCTHCTHCTHC|20 20 20|\"; reference:bid,6241; reference:cve,2002-1317; reference:secunia,11188; classtype:not-suspicious; priority:1; sid:2015042300; gid:1; rev:1;)",
+            "severity": {
+                "bg_color": "#F00",
+                "id": 1,
+                "is_predefined": true,
+                "name": "High",
+                "priority": 1,
+                "text_color": "#FFF"
+            },
+            "category": {
+                "id": 1,
+                "name": "Primary category"
+            }
+        },
+        {
+            "id": 6,
+            "name": "First signature",
+            "rule": "pass tcp $HOME_NET 10000 -> $EXTERNAL_NET any (msg:\"ET CHAT IRC USER command\"; flow:established,to_server; flowbits:set,ET.Tomcat.login.attempt; dsize:<135; content:\"THCTHCTHCTHCTHC|20 20 20|\"; reference:bid,6241; reference:cve,2002-1317; reference:secunia,11188; classtype:not-suspicious; priority:1; sid:2015042300; gid:1; rev:1;)",
+            "severity": {
+                "bg_color": "#F00",
+                "id": 1,
+                "is_predefined": true,
+                "name": "High",
+                "priority": 1,
+                "text_color": "#FFF"
+            },
+            "category": {
+                "id": 1,
+                "name": "Primary category"
+            }
+        },
+        {
+            "id": 7,
+            "name": "First signature",
+            "rule": "pass tcp $HOME_NET 10000 -> $EXTERNAL_NET any (msg:\"ET CHAT IRC USER command\"; flow:established,to_server; flowbits:set,ET.Tomcat.login.attempt; dsize:<135; content:\"THCTHCTHCTHCTHC|20 20 20|\"; reference:bid,6241; reference:cve,2002-1317; reference:secunia,11188; classtype:not-suspicious; priority:1; sid:2015042300; gid:1; rev:1;)",
+            "severity": {
+                "bg_color": "#F00",
+                "id": 1,
+                "is_predefined": true,
+                "name": "High",
+                "priority": 1,
+                "text_color": "#FFF"
+            },
+            "category": {
+                "id": 1,
+                "name": "Primary category"
+            }
+        }
+    ]
+}

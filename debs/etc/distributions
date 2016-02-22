@@ -1,0 +1,7 @@
+Origin: Bricata ProAccel Pro
+Label: Bricata ProAccel Pro
+Codename: trusty
+Architectures: i386 amd64
+Components: bpac
+Description: Apt repository for project Bricata ProAccel Pro
+SignWith: E04E17D5

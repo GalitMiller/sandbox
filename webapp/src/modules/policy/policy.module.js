@@ -1,0 +1,1 @@
+angular.module("bricata.ui.policy", ['bricata.ui.api']);

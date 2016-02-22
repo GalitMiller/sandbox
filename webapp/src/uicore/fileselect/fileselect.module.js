@@ -1,0 +1,1 @@
+angular.module('bricata.uicore.fileselect', ['jm.i18next']);

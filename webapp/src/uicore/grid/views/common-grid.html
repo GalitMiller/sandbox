@@ -1,0 +1,186 @@
+<div class="common-grid-container" ng-if="isGridInited">
+    <div class="row" ng-if="!states.dataLoadErrorOccured">
+
+        <div common-filter filter-config="gridConfiguration.filters" filter-changed="filterChanged"
+             report-id="reportId" class="filter-ctrl" date-picker-show-weeks="showWeeksOnDatePicker"></div>
+
+        <div loading-container="tableParams.settings().$loading">
+            <table ng-table="tableParams" class="table table-hover table-condensed ng-table-rowselected"
+                   template-header="table_header_template"
+                   template-pagination="table_pager_empty">
+
+                <tr ng-if="states.isNoFilteredData" class="stateChangeContainer">
+                    <td class="stateChangeMsgRow" colspan="{{::columnDefinitions.length}}">
+                        <grid-no-filter-results clear-filters="clearFilter"></grid-no-filter-results>
+                    </td>
+                </tr>
+                <tr ng-if="states.isGridTopLevelMsg" class="stateChangeContainer">
+                    <td class="stateChangeMsgRow" colspan="{{::columnDefinitions.length}}">
+
+                        <grid-row-changed-msg changed-object="rowChangedObject"
+                                              delete-msg="{{::gridConfiguration.labels.rowChangeInfo.delete}}"
+                                              delete-bulk-msg="{{::gridConfiguration.labels.rowChangeInfo.deleteBulk}}"
+                                              create-msg="{{::gridConfiguration.labels.rowChangeInfo.create}}"
+                                              edit-msg="{{::gridConfiguration.labels.rowChangeInfo.edit}}"
+                                              change-msg="{{::gridConfiguration.labels.rowChangeInfo.change}}">
+                        </grid-row-changed-msg>
+                    </td>
+                </tr>
+
+                <tr ng-repeat-start="entity in $data track by entity.id"
+                    ng-if="entity.isChanged" class="stateChangeContainer">
+                    <td class="stateChangeMsgRow" colspan="{{::columnDefinitions.length}}">
+                        <grid-row-changed-msg changed-object="rowChangedObject"
+                                              delete-msg="{{::gridConfiguration.labels.rowChangeInfo.delete}}"
+                                              delete-bulk-msg="{{::gridConfiguration.labels.rowChangeInfo.deleteBulk}}"
+                                              create-msg="{{::gridConfiguration.labels.rowChangeInfo.create}}"
+                                              edit-msg="{{::gridConfiguration.labels.rowChangeInfo.edit}}">
+                        </grid-row-changed-msg>
+                    </td>
+                </tr>
+                <tr ng-class="{'active': entity.$selected,
+                                'changed': entity.isChanged,
+                                'non-clickable': isRowClickDisabled}" class="grid-data-row">
+                    <td ng-repeat="column in ::columnDefinitions"
+                        ng-switch on="column.type"
+                        ng-style="column.style"
+                        ng-click="handleRowClick(entity, column.type)">
+                        <div ng-switch-when="check">
+                            <input type="checkbox" ng-model="checkboxes.items[entity.id]"
+                                   ng-change="processCheckBoxesChange()"/>
+                        </div>
+                        <div ng-switch-when="action" class="gridActions">
+                            <span ng-repeat="action in ::column.actions" class="glyphicon {{::action.icon}} rowAction"
+                                  aria-hidden="true" tooltip="{{::action.label | i18next}}"
+                                  ng-if="!action.enableField || entity[action.enableField]"
+                                  ng-click="rowAction(action.actionName, action.actionType, [entity], $event)"></span>
+                        </div>
+                        <div ng-switch-when="number">
+                            {{::entity[column.field]}}
+                        </div>
+                        <div ng-switch-when="label" class="gridLabel">
+                            <span label-trunc class="truncated" tooltip="">
+                                <span class="{{::entity[column.field].class | i18next | lowercase}}">
+                                    {{::entity[column.field].value | i18next}}
+                                </span>
+                            </span>
+                        </div>
+                        <div ng-switch-when="range" class="gridLabel">
+                            <span label-trunc class="truncated" tooltip="">
+                                <span class="{{::column.class}} {{::column.subfield ? entity[column.field][column.subfield].class : entity[column.field].class | i18next | lowercase}}">
+                                    {{::column.subfield ? entity[column.field][column.subfield].value : entity[column.field].value | i18next}}
+                                </span>
+                            </span>
+                        </div>
+                        <div ng-switch-when="severity" class="gridLabel">
+                            <span label-trunc class="truncated" tooltip="">
+                                <span ng-style="column.subfield ? entity[column.field][column.subfield].class : entity[column.field].class">
+                                    {{::column.subfield ? entity[column.field][column.subfield].value : entity[column.field].value}}
+                                </span>
+                            </span>
+                        </div>
+                        <div ng-switch-when="dynamicValue" class="truncDiv">
+                            <span label-trunc class="truncated" tooltip="">
+                                {{(entity[column.field] | i18next)}}
+                            </span>
+                        </div>
+                        <div ng-switch-when="dynamic" class="truncDiv">
+                            <span label-trunc class="truncated" tooltip="">
+                                {{column.subfield ? entity[column.field][column.subfield] : entity[column.field]}}
+                            </span>
+                        </div>
+                        <div ng-switch-default class="truncDiv">
+                            <span label-trunc class="truncated" tooltip="">
+                                {{::column.subfield ? entity[column.field][column.subfield] : entity[column.field] | i18next}}
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-repeat-end ng-if="gridConfiguration.rowDetailsView && entity.$selected"
+                    class="detailsViewContainer">
+                    <td colspan="{{::columnDefinitions.length}}">
+                        <div ng-include src="gridConfiguration.rowDetailsView.src"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="row grid-footer">
+            <div class="col-xs-2 zero-padding">
+                <button class="btn btn-default gridBulkDeleteBtn"
+                        ng-if="bulkDeleteAvailable" ng-disabled="bulkDeleteDisabled"
+                        ng-click="bulkDeleteHandler()">
+                    {{::bulkDeleteLbl | i18next}}
+                </button>
+            </div>
+
+            <div class="col-xs-10 zero-padding">
+                <form class="form form-inline pull-right pagination-controls" role="form">
+                    <div class="form-group">
+                        <div>
+<span ng-i18next="[i18next]({count:{{pagination.loadedItemsCount}},sprintf:['{{pagination.totalItemsCount}}']})gridFooter.shownNumber">
+                        </span>
+                            <span class="labelWithSpacing">{{::'gridFooter.showTxt' | i18next}}</span>
+
+                            <common-select ng-model="pageSize.selection"
+                                           ng-change="changePageSize"
+                                           ng-options="pageSize.options"
+                                           lbl-field="value" is-plain-txt="true"></common-select>
+
+                            <span class="labelWithSpacing">{{::'gridFooter.recsPerPage' | i18next}}</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <pagination ng-if="pagination.totalItemsCount > 0"
+                                    total-items="pagination.totalItemsCount" ng-model="pagination.currentPage"
+                                    ng-change="pageChanged()"
+                                    max-size="pagination.maxSize"
+                                    items-per-page="pageSize.selection.value" class="pagination-sm"
+                                    boundary-links="true" rotate="false"
+                                    previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+                                    last-text="&raquo;"></pagination>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row" ng-if="states.dataLoadErrorOccured">
+        <div class="col-xs-12 policies-reload-content">
+            <a href ng-click="reloadDataAfterError()" class="btn btn-primary">
+                <span class="glyphicon glyphicon-refresh"></span> {{::gridConfiguration.labels.reloadBtn | i18next}}
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/ng-template" id="table_header_template">
+    <tr>
+        <th ng-repeat="columnHead in ::columnDefinitions" ng-switch on="columnHead.type"
+            class="column-head" ng-class="{
+                      'sortable': columnHead.sortable,
+                      'checkColumn' : columnHead.type == 'check',
+                      'sort-asc': tableParams.isSortBy(columnHead.subfield ? (columnHead.field + '__' + columnHead.subfield) : columnHead.field, 'asc'),
+                      'sort-desc': tableParams.isSortBy(columnHead.subfield ? (columnHead.field + '__' + columnHead.subfield) : columnHead.field, 'desc')
+                    }"
+            ng-click="columnHead.sortable ? (columnHead.subfield ? sortTable(columnHead.field + '__' + columnHead.subfield) : sortTable(columnHead.field)) : ''">
+
+            <div ng-switch-when="check">
+                <input type="checkbox" ng-click="selectAll($event)" ng-checked="checkboxes.checked"
+                       ng-indeterminate="selectAllProp"
+                       name="filter-checkbox" value=""/>
+            </div>
+            <div ng-switch-default>{{::columnHead.title | i18next}}
+                <span class="sort-indicator"></span>
+            </div>
+        </th>
+    </tr>
+</script>
+
+<script type="text/ng-template" id="table_pager_empty">
+</script>

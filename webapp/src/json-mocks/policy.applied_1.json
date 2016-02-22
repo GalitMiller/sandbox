@@ -1,0 +1,19 @@
+{
+    "num_results": 3,
+    "objects": [
+        {
+            "policy_id": 1,
+            "action": "alert"
+        },
+        {
+            "policy_id": 2,
+            "action": "alert"
+        },
+        {
+            "policy_id": 5,
+            "action": "block"
+        }
+    ],
+    "page": 1,
+    "total_pages": 1
+}

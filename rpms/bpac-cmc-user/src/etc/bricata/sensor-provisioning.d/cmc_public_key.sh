@@ -1,0 +1,4 @@
+# Public key(s) of CMC to use for cmc user at sensors, so sensor will allow to log in.
+CMC_PUBLIC_KEYS=( 
+  'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDnieNWpUlK/r5hNi6K9vYkwLXWMRBIaQoQ54exuga55qelNJi5JYiVDy7wCeZVrdqUXX1tYTv4hPPlxBtsqhUqJ+6T1N5kKDuwLyPHhiY43ur9H2rCdI5okZkiwF3LpGjc29w/59YAdQ8OmngTAGJL7fbOaMBYIovHPBp6mvUuZ1RHW09mOkxCFjbMTfXSN4fRLWwHUemm1n3TTVmtDDkkzKY0hmhLdS9fMyYuWK1jfJAV9tKXywCxLceidANgt1+d4cpCMgthLDGialrbHf9wa8iYDKNLcPBciytmScKs8kfREj6YBipy5bZfl54GWDEwqAjMWz8gOg5gznnOps5l cmc@container'
+)

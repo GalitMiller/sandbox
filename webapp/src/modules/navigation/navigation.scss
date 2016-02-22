@@ -1,0 +1,37 @@
+.main-navigation {
+  background-color: #222729;
+  margin-bottom: 40px;
+  font-size: 14px;
+  .col-md-9 {
+    padding-left: 0;
+  }
+  .col-md-3 {
+    padding-right: 0;
+    .btn {
+      margin-top: 8px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  .navigation {
+    padding: 0;
+    margin: 0;
+    & > li {
+      float: left;
+      display: block;
+      padding: 15px 3px 12px 3px;
+      margin-right: 40px;
+      & > a {
+        color: #fff;
+        .glyphicon {
+          font-size: 10px;
+          margin-left: 4px;
+        }
+      }
+      &.active {
+        border-bottom: 4px #4277c4 solid;
+        font-weight: bold;
+      }
+    }
+  }
+}

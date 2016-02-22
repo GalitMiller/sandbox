@@ -1,0 +1,6 @@
+{
+	"objects": {
+		"id": 1,
+		"details": "drop tcp SHOME_NET any SEXTERNAL_NAT any (rnsg:&quot;ET TROJAN Likely Bot Nick in IRC (USA...), flow:established, to server; flowbits: isseLis_proto_irc: conten,NICK, pere,NICK,USA.,0-91{3,}/, classtype:troJan-activity, reference:url, doc.emerg,hreats.net/2008124; reference:url,www.emergingthreats.net/cgi-bin/cvsweb.cgi/sigsNIRUS/TROJAN_IRC_Bots: sid:2008124;rev:2;)"
+	}
+}

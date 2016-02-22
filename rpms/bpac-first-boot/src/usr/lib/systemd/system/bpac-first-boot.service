@@ -1,0 +1,16 @@
+[Unit]
+Description=First Boot script
+DefaultDependencies=no
+Conflicts=shutdown.target
+After=mariadb.service
+Before=httpd.service
+ConditionPathExists=!/var/lib/bpac-first-boot-done
+
+[Service]
+ExecStartPost=/usr/bin/touch /var/lib/bpac-first-boot-done
+Type=oneshot
+EnvironmentFile=-/etc/sysconfig/bpac-first-boot
+ExecStart=/usr/bin/bpac-first-boot.sh
+
+[Install]
+WantedBy=multi-user.target

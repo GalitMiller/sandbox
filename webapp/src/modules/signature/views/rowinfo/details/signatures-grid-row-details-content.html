@@ -1,0 +1,44 @@
+<div ng-if="!signaturesDetailsLoaded">
+    <preloader text-bundle-key="signatureDetails.loadingMessage"></preloader>
+</div>
+<div class="rowDetailContent" ng-if="signaturesDetailsLoaded && !signaturesDetailsLoadError">
+    <div class="col-xs-10 rowDetailDescriptionBlock">
+        <span class="search-list-title">{{::'signatureDetails.descriptionLbl' | i18next}}</span>
+        <hr>
+        <div class="rowDetailDescriptionContent signature-source-container">
+                <span class="selected-row-description">
+                    {{::signatureDetails.details}}
+                </span>
+        </div>
+        <hr>
+    </div>
+    <div class="col-xs-2 signature-details-btns">
+        <div class="notification-btn">
+            <form action="{{::searchModel.signatureSearchResultURL}}" method="post" class="view-events-form">
+                <input type="hidden" name="match_all" value="{{::searchModel.matchAll}}">
+                <input type="hidden" name="search" value="{{::searchModel.query}}">
+                <input type="hidden" name="authenticity_token" value="{{::searchModel.token}}">
+
+                <button type="submit" class="btn btn-primary" ng-disabled="noEventsFound">
+                    {{::'signatureDetails.viewTriggeredEvents' | i18next}}
+                </button>
+                <span class="no-events-msg" ng-if="noEventsFound">
+                    {{::'signatureDetails.noEventsFoundMsg' | i18next}}
+                </span>
+            </form>
+        </div>
+        <div class="hideDetails" ng-click="collapseDetails()">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+            <span>{{::'policyDetails.hideDetailsLbl' | i18next}}</span>
+        </div>
+    </div>
+
+</div>
+
+<div class="row" ng-if="signaturesDetailsLoadError">
+    <div class="col-md-12 signatures-reload-content">
+        <a href ng-click="reloadSignaturesDetails()" class="btn btn-primary">
+            <span class="glyphicon glyphicon-refresh"></span> {{::'errors.reloadSignatureDetails' | i18next}}
+        </a>
+    </div>
+</div>

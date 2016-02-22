@@ -1,0 +1,70 @@
+<span class="search-list-title">{{::sectionTitle}}</span>
+
+
+<div class="clearfix"></div>
+<div class="search-list-search-container">
+    <div class="col-no-padding" ng-class="{'col-xs-4': signatureIcon !== 'remove' || showRemoveButton}">
+        <div>
+            <div ng-if="showRemoveButton"
+                 class="remove-all-items" ng-click="clearAllSelected()"
+                 ng-disabled="listModel.entities.length === 0">
+                <span class="glyphicon glyphicon-remove search-list-remove">
+                </span> {{::'createPolicy.allLabel' | i18next}}
+            </div>
+        </div>
+    </div>
+    <div class="col-no-padding"
+         ng-class="{'col-xs-8': showRemoveButton, 'col-xs-12': !showRemoveButton}">
+        <div class="form-group has-feedback has-feedback-left col-no-padding">
+            <input ng-model="searchedItem.name" ng-model-options="{debounce: 300}" ng-change="filterChangeHandler()"
+                   placeholder="{{::searchPlaceholder}}" type="text" class="form-control">
+            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="search-list-scroll-bar" ng-scrollable>
+    <ul class="list-group">
+
+        <div ng-show="filteredData.length < 1 && listModel.entities.length > 0">
+            <div class="search-list-empty-result-container">
+                <strong>
+                    <span ng-click="clearSearchValue()">
+                        <span class="glyphicon glyphicon-remove"></span> {{::'createPolicy.noResultsFound' | i18next}}
+                    </span>
+                </strong>
+            </div>
+        </div>
+
+        <div ng-show="listModel.entities.length < 1">
+            <div class="search-list-empty-result-container">
+                <strong>
+                    <span>{{::absentDataMsg | i18next}}</span>
+                </strong>
+            </div>
+        </div>
+
+        <div ng-repeat="entity in displayedItems track by entity.id">
+            <li class="list-group-item search-list-item">
+                <div class="checkbox">
+                    <label ng-class="::{'no-padding': !showRemoveButton}">
+                        <span ng-if="::(showRemoveButton)" ng-click="removeSelection(entity.id)"
+                              class="glyphicon glyphicon-remove search-list-remove list" aria-hidden="true"></span>
+                        <span label-trunc class="truncated" tooltip=""
+                              tooltip-append-to-body="true">{{::entity.name}}</span>
+                    </label>
+                </div>
+            </li>
+        </div>
+    </ul>
+</div>
+
+<div ng-if="pagination.totalItemsCount > pagination.perPage" class="list-based-pagination">
+    <pagination total-items="pagination.totalItemsCount" ng-model="pagination.currentPage"
+                ng-change="pageChanged()"
+                max-size="pagination.maxSize"
+                items-per-page="pagination.perPage" class="pagination-sm btn-group btn-group-xs"
+                boundary-links="true" rotate="false"
+                direction-links="false" first-text="&laquo;"
+                last-text="&raquo;"></pagination>
+</div>

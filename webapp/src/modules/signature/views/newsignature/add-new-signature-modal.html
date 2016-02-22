@@ -1,0 +1,93 @@
+<div ng-show="!states.isSubModalShown">
+<div class="modal-header">
+    <button type="button" class="close" ng-click="closeSignatureModal()"
+            title="{{::'common.closeTxt' | i18next}}">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <h4 class="modal-title">{{::'createSignature.createNewSignature' | i18next}}</h4>
+</div>
+
+<div class="modal-steps">
+    <div class="modal-step"
+         ng-click="addNewSignatureModel.goToRulesInformation()"
+         ng-class="{active: currentStep.first}">
+        <span class="step-number">1</span>
+        <span class="step-label">{{::'createSignature.rulesInformation' | i18next}}</span>
+    </div>
+    <div class="modal-step" id="secondStepLnk"
+         ng-click="addNewSignatureModel.goToSignatureInformation()"
+         ng-class="{active: currentStep.second}">
+        <span class="step-number">2</span>
+        <span class="step-label">{{::'createSignature.signatureInformation' | i18next}}</span>
+    </div>
+    <div class="modal-step" id="thirdStepLnk"
+         ng-click="addNewSignatureModel.goToMetaInformation()"
+         ng-class="{active: currentStep.third}">
+        <span class="step-number">3</span>
+        <span class="step-label">{{::'createSignature.metaInformation' | i18next}}</span>
+    </div>
+</div>
+
+<div class="modal-body">
+
+    <form class="form-horizontal" novalidate>
+
+        <div ng-show="currentStep.first">
+            <rules-information></rules-information>
+        </div>
+
+        <div ng-show="currentStep.second">
+            <signature-information></signature-information>
+        </div>
+
+        <div ng-show="currentStep.third">
+            <meta-information></meta-information>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label"></label>
+                <div class="col-md-4">
+                    <label class="checkbox-inline">
+                        <input type="checkbox"
+                               ng-model="addNewSignatureModel.previewSignaturesBeforeSavingCheckBox.checked">
+                        {{::'createSignature.previewSignaturesCheckbox' | i18next}}
+                    </label>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="closeSignatureModal()" style="margin-right: 10px">
+        {{::'generalElements.cancel' | i18next}}</button>
+
+    <span ng-show="currentStep.first">
+        <button class="btn btn-primary" ng-click="addNewSignatureModel.goToSignatureInformation()"
+                id="secondStepBtn">
+            {{::'createSignature.nextStep' | i18next}}
+        </button>
+    </span>
+
+    <span ng-show="currentStep.second">
+        <button type="button" class="btn btn-default" ng-click="addNewSignatureModel.goToRulesInformation()">
+            {{::'createSignature.prevStep' | i18next}}
+        </button>
+        <button class="btn btn-primary" ng-click="addNewSignatureModel.goToMetaInformation()"
+                id="thirdStepBtn">
+            {{::'createSignature.nextStep' | i18next}}
+        </button>
+    </span>
+
+    <span ng-show="currentStep.third">
+         <button type="button" class="btn btn-default" ng-click="addNewSignatureModel.goToSignatureInformation()">
+             {{::'createSignature.prevStep' | i18next}}
+         </button>
+        <button class="btn btn-primary" ng-click="createSignature()"
+                id="finalBtn">
+            {{::'generalElements.create' | i18next}}
+        </button>
+    </span>
+
+</div>
+</div>

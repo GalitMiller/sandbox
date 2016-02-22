@@ -1,0 +1,22 @@
+{
+    "action": "pass",
+    "category": {
+        "id": 1,
+        "signatures_count": 22
+    },
+    "content_control": "",
+    "dst_host": null,
+    "dst_port": null,
+    "flow_control": "",
+    "gid": 1,
+    "id": 17,
+    "is_bidirectional": false,
+    "message": "",
+    "name": "test signature creation",
+    "priority": null,
+    "protocol": "tcp",
+    "revision": 1,
+    "sid": 2015041606,
+    "src_host": null,
+    "src_port": null
+}

@@ -1,0 +1,16 @@
+{
+    "objects": [
+        {
+            "id": 1,
+            "is_active": true,
+            "name": "eth0",
+            "sensor_id": 1
+        },
+        {
+            "id": 2,
+            "is_active": true,
+            "name": "eth1",
+            "sensor_id": 1
+        }
+    ]
+}

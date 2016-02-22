@@ -1,0 +1,15 @@
+.keywordsTextContent {
+  &.well {
+    padding: 12px;
+  }
+
+  .keywordHelp {
+    color: #959595;
+  }
+}
+
+.keywords-scrollable-menu {
+  height: auto;
+  max-height: 125px;
+  overflow-x: hidden;
+}

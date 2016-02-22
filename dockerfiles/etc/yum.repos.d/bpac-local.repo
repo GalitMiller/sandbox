@@ -1,0 +1,8 @@
+[bpac-local]
+name=BPAC local yum repository
+failovermethod=priority
+baseurl=file:///var/lib/bpac-yum-repo/
+enabled=1
+gpgcheck=0
+skip_if_unavailable=False
+metadata_expire=1s

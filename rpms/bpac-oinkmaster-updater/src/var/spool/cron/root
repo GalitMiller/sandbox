@@ -1,0 +1,2 @@
+# Update rules in BPAC database nightly at 3:00am every day
+01 03 * * *  /usr/bin/oinkmaster-updater.sh >> /var/log/oinkmaster-updater-nightly.log 2>&1

@@ -1,0 +1,3 @@
+
+# Public key(s) of CMC to use for cmc user at sensors, so sensor will allow to log in.
+CMC_PUBLIC_KEYS=( '' )

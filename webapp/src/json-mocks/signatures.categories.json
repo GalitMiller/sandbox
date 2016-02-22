@@ -1,0 +1,343 @@
+{
+    "num_results": 8,
+    "page": 1,
+    "total_pages": 0,
+    "objects": [
+        {
+            "id": 1,
+            "is_deletable": true,
+            "description": "Description for Signature_Category_Name qwsdasdasd dsf dsfsdf sdf fdsfds sf df  dsfdsfd  dsf sdf f dsfdsfds fdsfsdfddf dfd s dsfds",
+            "name": "Signature_Category_Name_with_very_very_very_very_very_very_very_very_long_name",
+            "signatures_count": 8,
+            "signatures": [
+                {
+                    "id": 1,
+                    "name": "Signature 1-A-3490578934 with very very very very very very very very long name",
+                    "category_id": 1
+                },
+                {
+                    "id": 2,
+                    "name": "Signature 1-B-0010101011",
+                    "category_id": 1
+                },
+                {
+                    "id": 3,
+                    "name": "Signature 1-C-0012837585",
+                    "category_id": 1
+                },
+                {
+                    "id": 4,
+                    "name": "Signature 1-D-9119173848",
+                    "category_id": 1
+                },
+                {
+                    "id": 5,
+                    "name": "Signature 1-E-9393937575",
+                    "category_id": 1
+                },
+                {
+                    "id": 6,
+                    "name": "Signature 1-F-0128383833",
+                    "category_id": 1
+                },
+                {
+                    "id": 7,
+                    "name": "Signature 1-G-7718188118",
+                    "category_id": 1
+                },
+                {
+                    "id": 8,
+                    "name": "Signature 1-H-2383838441",
+                    "category_id": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "is_deletable": false,
+            "description": "Description for Signature_Category",
+            "name": "Another Category with Signatures",
+            "signatures_count": 8,
+            "signatures": [
+                {
+                    "id": 9,
+                    "name": "Signature 2-A-1434142522"
+                },
+                {
+                    "id": 10,
+                    "name": "Signature 2-B-4244411441"
+                },
+                {
+                    "id": 11,
+                    "name": "Signature 2-C-0000111011"
+                },
+                {
+                    "id": 12,
+                    "name": "Signature 2-D-2200112222"
+                },
+                {
+                    "id": 13,
+                    "name": "Signature 2-E-3301578968"
+                },
+                {
+                    "id": 14,
+                    "name": "Signature 2-F-4444011123"
+                },
+                {
+                    "id": 15,
+                    "name": "Signature 2-G-7568936759"
+                },
+                {
+                    "id": 16,
+                    "name": "Signature 2-H-5907397345"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "is_deletable": false,
+            "description": "Description for Signature_Category",
+            "name": "Category of a signature for the policy",
+            "signatures_count": 10,
+            "signatures": [
+                {
+                    "id": 17,
+                    "name": "Signature 3-A-AAAA994549"
+                },
+                {
+                    "id": 18,
+                    "name": "Signature 3-B-BBB0489559"
+                },
+                {
+                    "id": 19,
+                    "name": "Signature 3-C-0000111011"
+                },
+                {
+                    "id": 20,
+                    "name": "Signature 3-D-2200112222"
+                },
+                {
+                    "id": 21,
+                    "name": "Signature 3-E-3301578968"
+                },
+                {
+                    "id": 22,
+                    "name": "Signature 3-F-4444011123"
+                },
+                {
+                    "id": 23,
+                    "name": "Signature 3-G-7568936759"
+                },
+                {
+                    "id": 24,
+                    "name": "Signature 3-H-5907397345"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "is_deletable": true,
+            "description": "Description for Signature_Category",
+            "name": "Signature Category",
+            "signatures_count": 12,
+            "signatures": [
+                {
+                    "id": 25,
+                    "name": "Signature 4-A-1434142522"
+                },
+                {
+                    "id": 26,
+                    "name": "Signature 4-B-4244411441"
+                },
+                {
+                    "id": 27,
+                    "name": "Signature 4-C-0000111011"
+                },
+                {
+                    "id": 28,
+                    "name": "Signature 4-D-2200112222"
+                },
+                {
+                    "id": 29,
+                    "name": "Signature 4-E-3301578968"
+                },
+                {
+                    "id": 30,
+                    "name": "Signature 4-F-4444011123"
+                },
+                {
+                    "id": 31,
+                    "name": "Signature 4-G-7568936759"
+                },
+                {
+                    "id": 32,
+                    "name": "Signature 4-H-5907397345"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "is_deletable": true,
+            "description": "Description for Signature_Category",
+            "name": "Just another signature Category",
+            "signatures_count": 9,
+            "signatures": [
+                {
+                    "id": 33,
+                    "name": "Signature 5-A-5558843894"
+                },
+                {
+                    "id": 34,
+                    "name": "Signature 5-B-5789634583"
+                },
+                {
+                    "id": 35,
+                    "name": "Signature 5-C-7867857575"
+                },
+                {
+                    "id": 36,
+                    "name": "Signature 5-D-XXX9458585"
+                },
+                {
+                    "id": 37,
+                    "name": "Signature 5-E-YYY8u59855"
+                },
+                {
+                    "id": 38,
+                    "name": "Signature 5-F-4444011123"
+                },
+                {
+                    "id": 39,
+                    "name": "Signature 5-G-7568936759"
+                },
+                {
+                    "id": 40,
+                    "name": "Signature 5-H-5907397345"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "is_deletable": true,
+            "description": "Description for Signature_Category",
+            "name": "Yet another category for the signature",
+            "signatures_count": 8,
+            "signatures": [
+                {
+                    "id": 41,
+                    "name": "Signature 6-A-5558843894"
+                },
+                {
+                    "id": 42,
+                    "name": "Signature 6-B-5789634583"
+                },
+                {
+                    "id": 43,
+                    "name": "Signature 6-C-7867857575"
+                },
+                {
+                    "id": 44,
+                    "name": "Signature 6-D-XXX9458585"
+                },
+                {
+                    "id": 45,
+                    "name": "Signature 6-E-YYY8u59855"
+                },
+                {
+                    "id": 46,
+                    "name": "Signature 6-F-4444011123"
+                },
+                {
+                    "id": 47,
+                    "name": "Signature 6-G-7568936759"
+                },
+                {
+                    "id": 48,
+                    "name": "Signature 6-H-5907397345"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "is_deletable": true,
+            "description": "Description for Signature_Category",
+            "name": "And even one more category",
+            "signatures_count": 8,
+            "signatures": [
+                {
+                    "id": 49,
+                    "name": "Signature 7-A-5558843894"
+                },
+                {
+                    "id": 50,
+                    "name": "Signature 7-B-5789634583"
+                },
+                {
+                    "id": 51,
+                    "name": "Signature 7-C-7867857575"
+                },
+                {
+                    "id": 52,
+                    "name": "Signature 7-D-XXX9458585"
+                },
+                {
+                    "id": 53,
+                    "name": "Signature 7-E-YYY8u59855"
+                },
+                {
+                    "id": 54,
+                    "name": "Signature 7-F-4444011123"
+                },
+                {
+                    "id": 55,
+                    "name": "Signature 7-G-7568936759"
+                },
+                {
+                    "id": 56,
+                    "name": "Signature 7-H-5907397345"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "is_deletable": true,
+            "description": "Description for Signature_Category",
+            "name": "Category Eight",
+            "signatures_count": 8,
+            "signatures": [
+                {
+                    "id": 57,
+                    "name": "Signature 8-A-5558843894"
+                },
+                {
+                    "id": 58,
+                    "name": "Signature 8-B-5789634583"
+                },
+                {
+                    "id": 59,
+                    "name": "Signature 8-C-7867857575"
+                },
+                {
+                    "id": 60,
+                    "name": "Signature 8-D-XXX9458585"
+                },
+                {
+                    "id": 61,
+                    "name": "Signature 8-E-YYY8u59855"
+                },
+                {
+                    "id": 62,
+                    "name": "Signature 8-F-4444011123"
+                },
+                {
+                    "id": 63,
+                    "name": "Signature 8-G-7568936759"
+                },
+                {
+                    "id": 64,
+                    "name": "Signature 8-H-5907397345"
+                }
+            ]
+        }
+    ]
+}

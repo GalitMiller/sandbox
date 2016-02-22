@@ -1,0 +1,18 @@
+angular.module("bricata.bpac",
+    [
+        "bricata.ui.templates",
+        "bricata.ui.api",
+        "bricata.ui.configuration",
+        "bricata.ui.header",
+        "bricata.ui.navigation",
+        "bricata.ui.policy",
+        "bricata.ui.policyapply",
+        "bricata.ui.referencetype",
+        "bricata.ui.reporting",
+        "bricata.ui.sensors",
+        "bricata.ui.severity",
+        "bricata.ui.signature",
+        "bricata.ui.signaturecategories",
+        "bricata.ui.signatureclasstypes",
+        "bricata.ui.userinfo"
+    ]);

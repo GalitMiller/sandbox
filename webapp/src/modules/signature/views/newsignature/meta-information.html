@@ -1,0 +1,91 @@
+<h4 class="modal-title">{{::'createSignature.metaInformation' | i18next}}</h4>
+
+<div class="form-group margin-top-6">
+    <label class="col-md-2 control-label input-label">{{::'createSignature.classType' | i18next}}</label>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-6">
+
+                <select ng-model="addNewSignatureModel.data.classTypeID"
+                        ng-options="key.id as key.name for key in addNewSignatureModel.values.classTypeList"
+                        class="form-control" ng-change="handleClassTypeChange()"
+                        input-validation required
+                        validation-event-name="third_isClassTypeValid"
+                        validation-group="signatureMetaValidation"
+                        tooltip="" tooltip-placement="right" tooltip-trigger="validationfailed">
+                    <option value="" selected="selected" disabled>{{::'generalElements.select' | i18next}}
+                        {{::'createSignature.classType' | i18next}}</option>
+                </select>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+
+<div class="form-group">
+    <label class="col-md-2 control-label input-label">{{::'createSignature.severity' | i18next}}</label>
+    <div class="col-md-5">
+        <select ng-model="addNewSignatureModel.data.severityId"
+                ng-options="key.id as key.name for key in addNewSignatureModel.values.severities"
+                class="form-control">
+            <option value="" selected="selected" disabled>
+                {{::'createSignature.selectSeverity' | i18next}}
+            </option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-default btn-sm" type="button" ng-click="openNewSeverityModal()">
+            {{::'createSignature.addNewSeverity' | i18next}}
+        </button>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-2 control-label input-label">{{::'createSignature.reference' | i18next}}</label>
+    <div class="col-md-10">
+        <div class="name-interface-rows name-interface-row-scroll" ng-scrollable="{useKeyboard: false}">
+            <div reference-input-validation
+                 rows-model="addNewSignatureModel.data.references"
+                 no-duplicated-reference-flag="addNewSignatureModel.validation.third.noDuplicatedReferenceFound"
+                 tooltip="" tooltip-placement="right"
+                 tooltip-append-to-body="true" tooltip-trigger="validationfailed">
+                <reference-input></reference-input>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-2 control-label input-label">{{::'createSignature.SID' | i18next}}</label>
+    <div class="col-md-4">
+        <input type="text" class="form-control" ng-model="addNewSignatureModel.data.sid" ng-disabled="isEditMode"
+               numeric-input input-validation required maxlength="12"
+               validation-event-name="third_isSIDValid"
+               validation-group="signatureMetaValidation"
+               tooltip="" tooltip-placement="right" tooltip-trigger="validationfailed">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-2 control-label input-label">{{::'createSignature.GID' | i18next}}</label>
+    <div class="col-md-4">
+        <input type="text" class="form-control" ng-model="addNewSignatureModel.data.gid"
+               numeric-input input-validation required
+               validation-event-name="third_isGIDValid"
+               validation-group="signatureMetaValidation"
+               tooltip="" tooltip-placement="right" tooltip-trigger="validationfailed">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-2 control-label input-label">{{::'createSignature.revision' | i18next}}</label>
+    <div class="col-md-4">
+        <input type="text" class="form-control" ng-model="addNewSignatureModel.data.revision"
+               numeric-input maxlength="5" minvalue="1" maxvalue="65535"
+               input-validation required
+               validation-event-name="third_isRevisionValid"
+               validation-group="signatureMetaValidation"
+               tooltip="" tooltip-placement="right" tooltip-trigger="validationfailed">
+    </div>
+</div>
+</div>
