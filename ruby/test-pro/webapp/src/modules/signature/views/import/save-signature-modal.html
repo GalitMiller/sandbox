@@ -1,0 +1,237 @@
+<div ng-show="!isSubModalShown">
+<div class="modal-header">
+    <button type="button" class="close" ng-click="closeImportSaveModal()"
+            title="{{::'common.closeTxt' | i18next}}">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <h4 class="modal-title">{{::'createPolicy.importSignature' | i18next}}</h4>
+</div>
+<div class="modal-body import-preview-body" loading-container="states.isLoadingServiceData">
+    <div class="row imported-signatures-info" ng-if="!states.isPartialErrorMode">
+        <div class="col-xs-5 total-count">
+            <span ng-i18next="[i18next]({sprintf:['{{importPreviewData.rules.length}}'],count:{{counters.validRulesCount}}})importSignature.parsedNumberMsg">
+            </span>
+        </div>
+        <div class="col-xs-7 import-rules-notification">
+
+            <span class="txt-info" ng-if="isNotificationPresent">
+                <span class="glyphicon glyphicon-info-sign import-info-icon"></span>
+            <span ng-i18next="[i18next]({count:{{counters.notificationsNum}}})importSignature.notificationNumberMsg">
+            </span>
+            </span>
+
+            <span class="txt-error" ng-if="importPreviewData.rules.length !== counters.validRulesCount">
+                <span class="glyphicon glyphicon-remove-sign import-info-icon"></span>
+            <span class="txt-error"
+                  ng-i18next="[i18next]({count:{{importPreviewData.rules.length - counters.validRulesCount}}})importSignature.errorNumberMsg">
+            </span>
+            </span>
+
+        </div>
+    </div>
+
+    <div class="row imported-signatures-setup" ng-if="!states.isPartialErrorMode">
+
+        <div class="col-xs-2">
+            <div class="checkbox">
+                <label class="top-checkbox">
+                    <input type="checkbox" ng-checked="checkboxes.checked" ng-click="selectAll($event)"
+                           ng-indeterminate="selectAllProp">
+                    {{::'importSignature.allLabel' | i18next}}
+                </label>
+            </div>
+        </div>
+
+
+        <div class="col-xs-10">
+            <form class="form form-inline pull-right" role="form">
+                <div class="form-group import-name-change-container">
+                    <span class="control-label input-label set-for-selected">
+                        {{::'importSignature.setForSelected' | i18next}}
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <div class="import-select-with-lbl">
+                        <select class="form-control" ng-model="topLvlSettings.category"
+                                ng-disabled="(states.bulkSetupDisabled || states.isSignatureCategorySelectionDisabled)"
+                                ng-options="opt.name for opt in values.categories track by opt.id"
+                                ng-change="topLvlCategoryChanged()">
+                            <option value="" disabled>{{::'importSignature.categoryName' | i18next}}</option>
+                        </select>
+                   </div>
+                    <div class="import-small-link">
+                        <a ng-href ng-click="openNewCategoryDialog()" ng-show="!states.isSignatureCategorySelectionDisabled">
+                            {{::'importSignature.addNewCategory' | i18next}}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="import-select-with-lbl">
+                        <select class="form-control" ng-model="topLvlSettings.severity"
+                                ng-disabled="states.bulkSetupDisabled"
+                                ng-options="opt.name for opt in values.severities track by opt.id"
+                                ng-change="topLvlSeverityChanged()">
+                            <option value="" disabled>{{::'importSignature.severityName' | i18next}}</option>
+                        </select>
+                    </div>
+
+                    <div class="import-small-link">
+                        <a ng-href ng-click="openNewSeverityDialog()">
+                            {{::'importSignature.addNewSeverity' | i18next}}
+                        </a>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="save-imported-signatures-scrollbar" ng-scrollable="{useKeyboard: false}"
+         spy-y="verticalScrollPosition" scroll-spy v-scroll-pos="verticalScrollPosition">
+        <div class="well" ng-repeat="ruleObj in displayedRules track by ruleObj.uid" id="import_rule_{{::$index}}">
+            <div class="row">
+                <div class="col-xs-1">
+                    <div ng-if="::(ruleObj.is_valid)" class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="checkboxes.items[ruleObj.uid]"
+                                   ng-change="processCheckBoxesChange()">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-xs-11">
+                    <div class="rule-container">
+                        <span class="preview-rule-txt">
+                            {{::ruleObj.source || ruleObj.rule.rule}}
+                        </span>
+                    </div>
+
+                    <form ng-if="::(ruleObj.is_valid || states.isPartialErrorMode)"
+                          class="form form-inline pull-right" role="form">
+                        <div class="form-group name-input-container">
+                            <input placeholder="{{::'importSignature.signatureNamePlaceholder' | i18next}}"
+                                   ng-model="ruleObj.name"
+                                   ng-disabled="::(states.isPartialErrorMode)"
+                                   type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" ng-model="ruleObj.category"
+                                    ng-options="opt.name for opt in ::values.categories track by opt.id"
+                                    ng-change="singleCategoryChanged()" ng-disabled="::(states.isPartialErrorMode || states.isSignatureCategorySelectionDisabled)">
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" ng-model="ruleObj.severity"
+                                    ng-options="opt.name for opt in ::values.severities track by opt.id"
+                                    ng-change="singleSeverityChanged()" ng-disabled="::(states.isPartialErrorMode)">
+                            </select>
+                        </div>
+                    </form>
+
+                    <div ng-if="::(!ruleObj.is_valid && !states.isPartialErrorMode)">
+                        <h5>
+                            <span class="txt-error">
+                                <span class="glyphicon glyphicon-remove-sign import-info-icon"></span>
+                                <span ng-i18next="[html:i18next]importSignature.invalidRuleMsg"></span>
+                            </span>
+                        </h5>
+                        <h5 ng-repeat="error in ::ruleObj.messages track by $index">
+                            <span class="txt-error">
+                                <span class="glyphicon glyphicon-remove-sign import-info-icon"></span>
+                                {{::error}}
+                            </span>
+                        </h5>
+                    </div>
+
+                    <div class="signature-notifications"
+                         ng-if="::(ruleObj.hasNotification && !states.isPartialErrorMode)">
+                        <h5 ng-repeat="info in ::ruleObj.messages track by $index">
+                            <span class="txt-info">
+                                <span class="glyphicon glyphicon-info-sign import-info-icon"></span>
+                                {{::info}}
+                            </span>
+                        </h5>
+                    </div>
+
+                    <div class="reason-container" ng-if="::(states.isPartialErrorMode)">
+                            <div class="errorMsgDetailsLnkContainer">
+                                <a href ng-model="collapsed" ng-click="ruleObj.reasonShown=!ruleObj.reasonShown">
+                                    {{::'importSignature.showImportFailureReasonLbl' | i18next}}
+                                </a>
+                            </div>
+
+                            <div ng-show="ruleObj.reasonShown">
+                                <span class="preview-rule-txt">
+                                    {{::ruleObj.reason}}
+                                </span>
+
+                                <h5 ng-repeat="msg in ::ruleObj.messages track by $index">
+                                    <span class="txt-error">
+                                        <span class="glyphicon glyphicon-remove-sign import-info-icon"></span>
+                                        {{::msg}}
+                                    </span>
+                                </h5>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="col-xs-5">
+                <div class="checkbox" ng-if="!states.isPartialErrorMode">
+                    <label>
+                        <input type="checkbox" ng-model="topLvlSettings.saveAsEditable">
+                        {{::'importSignature.editableOptionLbl' | i18next}}
+                    </label>
+                </div>
+            </div>
+
+            <div ng-if="!states.isLoadingServiceData && pagination.totalItemsCount > pagination.perPage"
+                 class="col-xs-7">
+                <div class="row list-based-pagination">
+                    <form class="form form-inline pull-right pagination-controls" role="form">
+                        <div class="form-group pagination-info-block">
+                <span ng-i18next="[i18next]({count:{{displayedRules.length}},sprintf:['{{pagination.totalItemsCount}}']})common.shownNumberMin">
+                        &nbsp;</span>
+                        </div>
+                        <div class="form-group">
+                            <pagination total-items="pagination.totalItemsCount" ng-model="pagination.currentPage"
+                                        ng-change="pageChanged()"
+                                        max-size="pagination.maxSize"
+                                        items-per-page="pagination.perPage" class="pagination-sm btn-group btn-group-xs"
+                                        boundary-links="true" rotate="false"
+                                        direction-links="false" first-text="&laquo;"
+                                        last-text="&raquo;"></pagination>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="modal-footer" ng-if="!states.isPartialErrorMode">
+    <button type="button" class="btn btn-default"
+            ng-click="closeImportSaveModal()">{{::'generalElements.cancel' | i18next}}</button>
+    <button type="button" class="btn btn-default"
+            ng-click="navToPreviousStep()">{{::'importSignature.prevStep' | i18next}}</button>
+    <button class="btn btn-primary"
+            ng-click="saveImport()">{{::'importSignature.saveImportedBtnLbl' | i18next}}</button>
+</div>
+
+<div class="modal-footer" ng-if="states.isPartialErrorMode">
+    <button class="btn btn-default"
+            ng-click="closeImportSaveModal()">{{::'common.closeTxt' | i18next}}</button>
+</div>
+</div>

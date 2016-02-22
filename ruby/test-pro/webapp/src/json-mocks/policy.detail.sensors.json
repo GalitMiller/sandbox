@@ -1,0 +1,20 @@
+{
+    "objects": [
+        {
+            "last_applied_at": "2015-07-22T10:48:55",
+            "id": 1,
+            "interface": "eth0",
+            "sensor": "Alpha sensor",
+            "last_applied_by": "John Doe",
+            "action": "alert"
+        },
+        {
+            "last_applied_at": "2015-07-22T10:48:55",
+            "id": 3,
+            "interface": "eth1",
+            "sensor": "Bravo sensor",
+            "last_applied_by": "Omar Kumar",
+            "action": "block"
+        }
+    ]
+}

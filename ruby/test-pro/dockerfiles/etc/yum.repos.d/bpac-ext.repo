@@ -1,0 +1,8 @@
+[bpac-ext]
+name=BPAC external dependencies (thirdpaty packages)
+failovermethod=priority
+baseurl=http://192.168.240.82:8888/repo/bricata/el7/x86_64/
+enabled=1
+gpgcheck=0
+skip_if_unavailable=False
+metadata_expire=1s

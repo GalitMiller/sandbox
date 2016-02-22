@@ -1,0 +1,52 @@
+<div class="common-filter" ng-if="filterConfigExists">
+    <div class="col-xs-3" ng-if="states.isSearchFilterInited">
+        <form class="form-horizontal">
+            <div class="form-group has-feedback has-feedback-left">
+                <input placeholder="{{::'common.searchTxt' | i18next}}"
+                       type="text" ng-model-options="{debounce: 1000}"
+                       ng-model="selectedFilters.searchFilterVal" class="form-control">
+                <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-9 filterRightSide">
+        <form class="form form-inline pull-right filters-controls" role="form">
+            <div class="form-group" ng-if="states.isOptionFilterReady">
+                <span for="filterType" class="control-label input-label">{{::'filter.showTxt' | i18next}}</span>
+
+                <common-select id="filterType" ng-model="selectedFilters.optionFilterVal"
+                               ng-change="handleFilterChange"
+                               ng-options="::(optionFilterValues)" lbl-field="label"></common-select>
+            </div>
+            <div class="form-group" ng-if="states.isValueFilterInited">
+                <span for="filterValues" class="control-label input-label">{{::'filter.createdByTxt' | i18next}}</span>
+
+                <common-select id="filterValues" ng-model="selectedFilters.valueFilterVal"
+                               ng-change="handleFilterChange"
+                               ng-options="::(valueFilterValues)" lbl-field="label"></common-select>
+            </div>
+            <div class="form-group" ng-if="states.isDateFilterInited">
+                <span class="control-label input-label">{{::'filter.dateFilter' | i18next}}</span>
+                <span for="dateFrom" class="control-label">{{::'filter.dateFromTxt' | i18next}}</span>
+                <common-date-picker id="dateFromPicker" dt="selectedFilters.dateStart"
+                                    max-date="maxDateStart"
+                                    date-changed="startDateChange"
+                                    date-options="datePickerOptions"/>
+            </div>
+            <div class="form-group" ng-if="states.isDateFilterInited">
+                <span for="dateTo" class="control-label">{{::'filter.dateToTxt' | i18next}}</span>
+                <common-date-picker id="dateToPicker" dt="selectedFilters.dateEnd"
+                                    min-date="minDateEnd"
+                                    date-changed="endDateChange"
+                                    date-options="datePickerOptions"/>
+            </div>
+            <div class="form-group clearFilterContainer" ng-if="states.showClearFilterBtn">
+                <span class="glyphicon glyphicon-remove clearFilterBtn" aria-hidden="true" ng-class="clearFilterState"
+                      ng-click="clearFilter()" tooltip="{{::'filter.clearTxt' | i18next}}"></span>
+            </div>
+        </form>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+

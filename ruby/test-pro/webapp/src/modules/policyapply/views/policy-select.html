@@ -1,0 +1,78 @@
+<form class="form-horizontal" novalidate>
+
+<div class="conflicts-info row" ng-if="model.conflictingPolicies.length > 0">
+    <div class="col-xs-12">
+        <label class="col-xs-1 conflict-msg-sign">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+        </label>
+        <label class="col-xs-11 conflict-msg-txt">
+            <span ng-i18next="[html:i18next]({count:{{model.conflictingPolicies.length}}})applyPolicyModal.conflictingPoliciesMsg"></span>
+        </label>
+    </div>
+
+</div>
+
+<h4 class="modal-title apply-dlg-subtitle">
+    {{::'applyPolicyModal.policiesSubTitle' | i18next}}
+</h4>
+
+<div class="form-group">
+<div class="col-xs-12 apply-entities-selection">
+<div class="name-interface-rows name-interface-row-scroll" ng-scrollable="{scrollX:'none'}"
+     ng-attr-tooltip="{{policiesSelectError}}"
+     tooltip-placement="right"
+     tooltip-append-to-body="true" tooltip-trigger="validationfailed">
+    <div class=""
+         policy-select-validation
+         rows-model="model.commonPolicies"
+         duplicated-flag="duplicatePolicyFound"
+         top-lvl-err-msg-update="policiesSelectErrorUpdated">
+
+        <div class="policy-select-row" ng-repeat="row in model.commonPolicies track by $index">
+            <div class="col-xs-6 policy-select-content">
+                <div class="col-xs-4 field-lbl">
+                    <span>{{::'applyPolicyModal.policyName' | i18next}}:</span>
+                </div>
+                <div class="col-xs-8 apply-policy-name-dropdown">
+                    <common-select ng-model="row.policy"
+                                   ng-options="model.values.policyOptions"
+                                   ng-change="handlePolicyChange"
+                                   ng-class="{'has-error': row.isEmpty || row.isDuplicated}"
+                                   lbl-field="name" append-to-body="true"></common-select>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-xs-4 no-padding">
+                <div class="col-xs-4 field-lbl second-select-lbl">
+                    <span>{{::'applyPolicyModal.action' | i18next}}:</span>
+                </div>
+                <div class="col-xs-8 apply-policy-action-dropdown">
+                    <common-select ng-model="row.action"
+                                   ng-options="model.values.actions"
+                                   ng-change="handlePolicyChange"
+                                   ng-class="{'has-error': row.isEmpty || row.isDuplicated}"
+                                   lbl-field="i18nLabel" append-to-body="true"></common-select>
+                </div>
+            </div>
+
+            <div class="col-xs-1">
+                <button class="btn btn-default" ng-click="removePolicyRow($index)"
+                        ng-class="{'policy-select-button-hidden': $index === 0 && model.commonPolicies.length === 1}">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true" ></span>
+                </button>
+            </div>
+            <div class="col-xs-1">
+                <button class="btn btn-default"
+                        ng-class="{'policy-select-button-hidden': $index !== model.commonPolicies.length - 1}"
+                        ng-click="addPolicyRow()" ng-disabled="row.name === '' || duplicatePolicyFound">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</div>
+</div>
+</div>
+</form>

@@ -1,0 +1,56 @@
+<div ng-if="!signatureCategoryDetailsLoaded">
+    <preloader text-bundle-key="signatureCategories.details.loadingMessage"></preloader>
+</div>
+        
+<div class="rowDetailContent signature-categories-details" ng-if="signatureCategoryDetailsLoaded && !signatureCategoryDetailsLoadError">
+    <div class="col-xs-6 rowDetailSearchListContent">
+        <search-list class="search-list"
+                     absent-data-msg="signatureCategories.details.noSignaturesFound"
+                     signature-icon="empty"
+                     parent-object-id="{{::selectedRow.id}}" server-data-call="categorySignaturesLoadMethod"
+                     search-placeholder="{{::'signatureCategories.details.searchSignaturesLbl' | i18next}}"
+                     section-title="{{::'signatureCategories.details.signaturesLbl' | i18next}}"></search-list>
+    </div>
+    <div class="col-xs-6 rowDetailDescriptionBlock">
+        <span class="search-list-title">{{::'signatureCategories.details.descriptionLbl' | i18next}}</span>
+        <div>
+            <hr>
+            <div class="rowDetailDescriptionContent rowDetailDescriptionScroll" ng-scrollable>
+                <span class="selected-row-description">
+                    {{::signatureCategoryDetails.description}}
+                </span>
+            </div>
+
+            <form class="form form-inline signature-category-details-actions">
+                <div class="form-group">
+                    <span class="search-list-title input-label">
+                        {{::'signatureCategories.details.addSignToTheCategoryLbl' | i18next}}
+                    </span>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default" ng-click="addNewSignature()">
+                        {{::'generalElements.create' | i18next}}
+                    </button>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default" ng-click="importSignatures()">
+                        {{::'generalElements.import' | i18next}}
+                    </button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+    <div class="hideDetails" ng-click="collapseDetails()">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+        <span>{{::'policyDetails.hideDetailsLbl' | i18next}}</span>
+    </div>
+</div>
+
+<div class="row" ng-if="signaturesDetailsLoadError">
+    <div class="col-md-12 signatures-reload-content">
+        <a href ng-click="reloadSignaturesDetails()" class="btn btn-primary">
+            <span class="glyphicon glyphicon-refresh"></span> {{::'errors.reloadSignatureCategoryDetails' | i18next}}
+        </a>
+    </div>
+</div>

@@ -1,0 +1,3 @@
+
+# Additional packages for developers/admins
+ADDITIONAL_PACKAGES_TO_INSTALL=( mc bash-completion htop net-tools )

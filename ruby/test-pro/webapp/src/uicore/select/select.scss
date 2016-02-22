@@ -1,0 +1,47 @@
+.select-ctrl {
+  width: 120px;
+  max-width: 120px;
+  padding: 0;
+  margin: 0;
+  position: relative;
+
+  label {
+    text-align: left;
+  }
+
+  .select-ctrl-input {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding-right: 20px;
+    width: inherit !important;
+  }
+
+  .select-ctrl-icon {
+    font-size: 10px;
+    top: 0 !important;
+    right: 0 !important;
+  }
+
+  .form-control-feedback {
+    width: 20px;
+  }
+}
+
+.select-ctrl-dropdown {
+  height: auto;
+  max-height: 215px;
+  overflow-x: hidden;
+  .disabled {
+    a {
+      cursor: default;
+    }
+  }
+}
+
+.has-error {
+
+  .select-ctrl-input {
+    border: 1px solid #a94442;
+  }
+
+}

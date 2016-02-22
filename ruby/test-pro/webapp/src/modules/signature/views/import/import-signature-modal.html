@@ -1,0 +1,58 @@
+<div ng-show="!isImportPreviewShown">
+<div class="modal-header">
+    <button type="button" class="close" ng-click="closeImportModal()"
+            title="{{::'common.closeTxt' | i18next}}">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <h4 class="modal-title">{{::'createPolicy.importSignature' | i18next}}</h4>
+</div>
+<div class="modal-body">
+
+    <form class="form-horizontal">
+
+
+        <div class="form-group">
+            <label class="col-md-2 control-label input-label">
+                {{::'importSignature.format' | i18next}}
+            </label>
+            <div class="col-md-9 signature-import-ctrl">
+                <label class="radio-inline">
+                    <input type="radio" name="format"
+                           ng-model="model.data.format"
+                           data-ng-value="'suricata'">
+                    {{::'importSignature.suricataFormat' | i18next}}
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="format"
+                           ng-model="model.data.format"
+                           data-ng-value="'snort'" ng-disabled="true">
+                    {{::'importSignature.snortFormat' | i18next}}
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label input-label import-file-select-lbl">
+                {{::'common.reference' | i18next}}
+            </label>
+            <div class="col-md-10">
+                <div class="well import-file-select-container">
+                    <file-select></file-select>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+<div class="modal-footer">
+
+    <button type="button" class="btn btn-default"
+            ng-click="closeImportModal()">{{::'generalElements.cancel' | i18next}}</button>
+
+    <button class="btn btn-primary" ng-click="importSignature()">
+        {{::'generalElements.import' | i18next}}
+    </button>
+
+</div>
+</div>

@@ -1,0 +1,5 @@
+bpac-ids-cmcadmin-profile (@VERSION@) unstable; urgency=low
+
+  * Initial version of the package created
+
+ -- Roman Pavlyuk <rpavlyuk@softserveinc.com>  Fri, 8 May 2015 17:15:03 +0200

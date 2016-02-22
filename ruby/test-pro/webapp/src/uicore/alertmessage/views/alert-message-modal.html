@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="closeAlertMessageModal(messageObject.cancel)"
+            title="{{::'common.closeTxt' | i18next}}">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <h4 class="modal-title">{{::messageObject.title | i18next}}</h4>
+</div>
+<div class="modal-body">
+
+    <div>
+        <span class="alert-txt">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+            <span class="modal-title">{{::messageObject.text | i18next}}</span>
+        </span>
+    </div>
+
+    <div class="alert-detail">
+        <span class="modal-title">{{::messageObject.detail | i18next}}</span>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" ng-click="closeAlertMessageModal(messageObject.cancel)">
+        {{::'common.cancelTxt' | i18next}}
+    </button>
+    <button ng-if="messageObject.back" class="btn btn-primary" ng-click="closeAlertMessageModal(messageObject.back)">
+        {{::'common.backTxt' | i18next}}
+    </button>
+</div>

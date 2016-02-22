@@ -1,0 +1,92 @@
+<div ng-controller="CreatePolicyController">
+
+    <div class="container" loading-container="states.isPolicyDataSendingInProgress">
+        <div class="policies-header">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>{{::pageTitleI18N | i18next}}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-content">
+            <h4 class="bold-text">{{::'createPolicy.mainPolicyInformation' | i18next}}</h4>
+            <br>
+
+            <form class="form-horizontal" name="createPolicyForm" novalidate ng-submit="submitPolicy()">
+                <div class="form-group">
+                    <label class="col-xs-2 control-label input-label" for="policyName">
+                        {{::'createPolicy.policyName' | i18next}}
+                    </label>
+                    <div class="col-xs-4 no-padding">
+                        <input id="policyName" type="text" class="form-control"
+                               ng-model="policyData.policyName"
+                               input-validation required ng-maxlength="255"
+                               validation-event-name="policyNameValidation"
+                               tooltip="" tooltip-placement="right" tooltip-trigger="validationfailed">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2 control-label input-label"
+                           for="policyDescription">{{::'createPolicy.description' | i18next}}</label>
+                    <div class="col-xs-4 no-padding">
+                        <textarea id="policyDescription" class="form-control"
+                                  ng-model="policyData.description"
+                                  input-validation required ng-minlength="4"
+                                  validation-event-name="policyDescriptionValidation"
+                                  tooltip="" tooltip-placement="right" tooltip-trigger="validationfailed"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2 control-label input-label" for="policyType">
+                        {{::'createPolicy.policyType' | i18next}}
+                    </label>
+                    <div class="col-xs-4 no-padding">
+                        <select ng-model="_policyType" id="policyType" ng-change="updatePolicyType()"
+                                ng-options="(key.i18nLabel | i18next) for key in ::policyTypeList"
+                                class="form-control"
+                                input-validation required
+                                validation-event-name="policyCategoryValidation"
+                                tooltip="" tooltip-placement="right" tooltip-trigger="validationfailed">
+                            <option value="" disabled>{{::'createPolicy.policyTypeEmptyOptionTxt' | i18next}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div ng-if="states.signatureSelectionEnabled">
+                    <h4 class="select-signatures-heading bold-text">
+                        {{::'createPolicy.selectSignaturesHeading' | i18next}}
+                    </h4>
+
+                    <signature-select selection-model="policyData.selectedSignatures"
+                                      selection-mode="states.signatureSelectionMode"
+                                      preselection-model="preselectedData">
+                    </signature-select>
+
+                </div>
+
+                <div class="checkbox margin-top-5">
+                    <label for="previewBeforeSavingCheckbox">
+                        <input type="checkbox" id="previewBeforeSavingCheckbox"
+                               ng-model="previewBeforeSavingCheckboxModel.checked">
+                        {{::'createPolicy.previewSignatures' | i18next}}
+                    </label>
+                </div>
+
+                <hr>
+                <button ng-click="cancelCreation()" type="button" class="btn btn-default btn-lg">
+                    {{::'generalElements.cancel' | i18next}}
+                </button>
+
+                <input id="saveBtn" type="submit"
+                       value="{{::btnTitleI18N | i18next}}" class="btn btn-primary btn-lg">
+
+            </form>
+        </div>
+    </div>
+</div>
+
+

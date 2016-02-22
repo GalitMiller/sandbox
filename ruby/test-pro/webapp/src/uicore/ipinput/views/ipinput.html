@@ -1,0 +1,100 @@
+<div class="well ip-input-box" ip-input-validation
+     tooltip="" tooltip-placement="right" tooltip-trigger="validationfailed">
+    <div class="col-md-7">
+        <div class="col-md-1 col-no-padding">
+            <span class="ip-label">{{'ipInput.ip' | i18next}}:</span>
+        </div>
+        <div class="col-md-9 col-no-padding">
+            <form name="ipInputForm">
+                <input type="text" class="form-control"
+                       ng-disabled="selectedIpAddress.anyIp"
+                       ng-model="selectedIpAddress.ip"
+                       input-validation>
+            </form>
+        </div>
+        <div class="col-md-2 col-no-padding">
+                <span class="dropdown" dropdown>
+                <button dropdown-toggle ng-disabled="selectedIpAddress.anyIp"
+                        ng-if="!selectedIpAddress.anyIp && selectedIpAddress.anyIp"
+                        class="btn btn-default open-ip-list-menu">...</button>
+                    <div class="dropdown-menu ip-dropdown">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>{{'ipInput.name' | i18next}}</th>
+                                <th>{{'ipInput.network' | i18next}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="ipAddress in IPsCollections.ipAddressesList"
+                                ng-click="selectIPAddress(ipAddress)">
+                                <td>{{ipAddress.name}}</td>
+                                <td>{{ipAddress.address}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </span>
+        </div>
+        <div class="col-md-1 col-no-padding"></div>
+        <div class="col-md-9 col-no-padding checkbox">
+            <label>
+                <input type="checkbox" value="*" ng-model="selectedIpAddress.anyIp" ng-change="anyIpChange()">
+                {{'ipInput.anyIp' | i18next}}
+            </label>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="">
+            <div class="col-md-2 col-no-padding">
+                <span class="port-label">{{'ipInput.port' | i18next}}:</span>
+            </div>
+            <div class="col-md-8 col-no-padding">
+                <form name="portInputForm">
+                    <input type="text" class="form-control"
+                           ng-disabled="selectedPort.anyPort"
+                           ng-model="selectedPort.port"
+                           input-validation>
+                </form>
+            </div>
+            <div class="col-md-2 col-no-padding">
+               <span class="dropdown" dropdown>
+                <button dropdown-toggle ng-disabled="selectedPort.anyPort"
+                        ng-if="!selectedIpAddress.anyIp && selectedIpAddress.anyIp"
+                        class="btn btn-default open-ip-list-menu">...</button>
+                    <div class="dropdown-menu ip-dropdown">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>{{'ipInput.name' | i18next}}</th>
+                                <th>{{'ipInput.port' | i18next}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="port in IPsCollections.portsList"
+                                ng-click="selectPort(port)">
+                                <td>{{port.name}}</td>
+                                <td>{{port.value}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </span>
+            </div>
+
+            <div class="col-md-2 col-no-padding"></div>
+            <div class="col-md-8 col-no-padding checkbox">
+                <label>
+                    <input type="checkbox" value="*" ng-model="selectedPort.anyPort" ng-change="anyPortChange()">
+                    {{'ipInput.anyPort' | i18next}}
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+
+
+

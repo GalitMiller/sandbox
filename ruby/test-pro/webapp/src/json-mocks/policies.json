@@ -1,0 +1,73 @@
+{
+    "num_results": 5,
+    "page": 1,
+    "total_pages": 3,
+    "objects" : [
+        {
+            "id": 1,
+            "name": "ProAccel_Policy_Name_1_very_very_very_very_very_very_very_very_very_very_very_very_very_long_name",
+            "description": "some_description_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very_very",
+            "signatures_count": 50,
+            "last_applied_by": null,
+            "is_deletable": true,
+            "created_at": null,
+            "author": {
+                "name": "John Doe"
+            },
+            "policy_type": "proAccelCategories"
+        },
+        {
+            "id": 2,
+            "name": "Another Policy",
+            "description": "another very long long long long long long long long long long long long description",
+            "signatures_count": 12,
+            "last_applied_by": {"active": true, "id": 3, "login": "analyst", "name": "Omar Kumar", "role": "analyst"},
+            "is_deletable": true,
+            "created_at": "2015-03-10T14:28:01.263362",
+            "author": {
+                "name": "Bob Brown"
+            },
+            "policy_type": "proAccelCustom"
+        },
+        {
+            "id": 3,
+            "name": "One More Policy",
+            "description": "1 description",
+            "signatures_count": 0,
+            "last_applied_by": {"active": true, "id": 3, "login": "analyst", "name": "Omar Kumar", "role": "analyst"},
+            "is_deletable": true,
+            "created_at": "2015-03-12T14:28:01.263362",
+            "author": {
+                "name": "Amy Doe is Super User!!!"
+            },
+            "policy_type": "proAccelCustom"
+        },
+        {
+            "id": 4,
+            "name": "Avery Important Policy",
+            "description": "important description",
+            "signatures_count": 150,
+            "last_applied_by": {"active": true, "id": 3, "login": "analyst", "name": "Omar Kumar", "role": "analyst"},
+            "is_deletable": false,
+            "created_at": "2015-03-13T14:28:01.263362",
+            "author": {
+                "name": "Lora Brown"
+            },
+            "policy_type": "proAccelLow"
+        },
+        {
+            "id": 5,
+            "name": "Final Policy",
+            "description": "final desc",
+            "signatures_count": 30,
+            "last_applied_by": {"active": true, "id": 3, "login": "analyst", "name": "Omar Kumar", "role": "analyst"},
+            "is_deletable": true,
+            "created_at": "2015-03-08T14:28:01.263362",
+            "author": {
+                "name": "John Doe"
+            },
+            "policy_type": "proAccelAll"
+        }
+    ]
+}
+

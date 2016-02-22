@@ -1,0 +1,28 @@
+[Unit]
+Description=Celery workers
+After=bpac-first-boot.service
+
+[Service]
+Type=forking
+User=cmc
+Group=cmc
+EnvironmentFile=/etc/sysconfig/celery
+WorkingDirectory=/var/www/app
+ExecStart=/usr/bin/celery multi start $CELERYD_NODES \
+    -A $CELERY_APP \
+    --pidfile=/var/run/celery/%n.pid \
+    --logfile=/var/log/celery/%n%I.log \
+    --loglevel="INFO" \
+    $CELERYD_OPTS
+ExecStop=/usr/bin/celery multi stopwait $CELERYD_NODES \
+    --pidfile=/var/run/celery/%n.pid
+ExecReload=/usr/bin/celery multi restart $CELERYD_NODES \
+    -A ${CELERY_APP} \
+    --pidfile=/var/run/celery/%n.pid \
+    --logfile=/var/log/celery/%n%I.log \
+    --loglevel="INFO" \
+    $CELERYD_OPTS
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,62 @@
+BPAC Version 1.5.1 git:7842fa4
+Built at: Tue Jun  2 16:52:06 EEST 2015, jenkins build number: none on host: arnem, jenkins build URL: 
+commit 7842fa494095ad2b753b757e17ddab91d657cedc
+Author: vlisivka <vlisivka@gmail.com>
+Date:   Tue Jun 2 15:56:38 2015 +0300
+
+    Small fix.
+
+commit 41dfbbff55162aa95b900f8f71900ba2dd9f2366
+Author: vlisivka <vlisivka@gmail.com>
+Date:   Tue Jun 2 15:55:51 2015 +0300
+
+    Section %check is added to RPM package. Unfortunatelly, no packages has tests. See BPAC-424.
+
+commit fe0487cee9129b4be49524030f0eac8bfadf0045
+Author: vlisivka <vlisivka@gmail.com>
+Date:   Tue Jun 2 15:12:19 2015 +0300
+
+    Various small fixes.
+
+commit fb261613cb932b642c1d124686d67745b171b216
+Author: Ruslan Sadygov <rsadyhov@softserveinc.com>
+Date:   Tue Jun 2 15:43:35 2015 +0300
+
+    removed not needed controller
+
+commit 75d03b41a307d59c5b61e4840d6102bb3333d618
+Author: Ruslan Sadygov <rsadyhov@softserveinc.com>
+Date:   Tue Jun 2 15:37:59 2015 +0300
+
+    optimization for watchers inside search list component
+
+commit 26a9a45deb557d25b31d6727b57cc1f9e79ff25f
+Author: Ruslan Sadygov <rsadyhov@softserveinc.com>
+Date:   Tue Jun 2 15:28:18 2015 +0300
+
+    updated signature select component to support pagination
+
+commit 97ed525de5aea8a68a82bfa01fdd0c7a15283558
+Merge: 4cac847 cc98048
+Author: Ruslan Sadygov <rsadyhov@softserveinc.com>
+Date:   Tue Jun 2 15:00:41 2015 +0300
+
+    Merge branch 'development' of vm162783.projects.local:bricata/ProAccel-CMC into development
+
+commit 4cac8479984fa75077e7d829c16998bdd507dbc0
+Author: Ruslan Sadygov <rsadyhov@softserveinc.com>
+Date:   Tue Jun 2 13:56:23 2015 +0300
+
+    corrected bower file
+
+commit cc9804808df9aee6163db55e86bd143c8dbbfcfb
+Author: vlisivka <vlisivka@gmail.com>
+Date:   Tue Jun 2 13:49:28 2015 +0300
+
+    RVM script doesnot work in strict mode (set -ue). See BPAC-424.
+
+commit 638a37d560136243ec7b9c8e2edd285c277e5655
+Author: Ruslan Sadygov <rsadyhov@softserveinc.com>
+Date:   Tue Jun 2 13:05:08 2015 +0300
+
+    optimization for search list under the policy grid row

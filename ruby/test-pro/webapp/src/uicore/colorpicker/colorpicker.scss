@@ -1,0 +1,36 @@
+@mixin Opacity($value) {
+  filter: alpha(opacity=$value);
+  -khtml-opacity: $value;
+  -moz-opacity: $value;
+  opacity: $value;
+}
+
+.color-rect {
+  width: 18px;
+  height: 18px;
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+
+.select-color-container {
+  padding: 6px;
+}
+
+.color-picker-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 30px;
+  max-height: 30px;
+  font-size: 30px;
+  text-align: right;
+  @include Opacity(0);
+  background: white;
+  cursor: inherit;
+  display: block;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}

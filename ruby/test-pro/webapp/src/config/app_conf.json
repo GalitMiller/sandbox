@@ -1,0 +1,190 @@
+{
+    "grid": {
+        "pageSizes": [{"value": 10}, {"value": 20}, {"value": 50}]
+    },
+
+    "policyTypes": [
+        {
+            "value": "proAccelCategories",
+            "i18nLabel": "createPolicy.optionsValues.proAccelCategories",
+            "signatureSelect": "categories"
+        },
+        {
+            "value": "proAccelAll",
+            "i18nLabel": "createPolicy.optionsValues.proAccelAll",
+            "signatureSelect": ""
+        },
+        {
+            "value": "proAccelHigh",
+            "i18nLabel": "createPolicy.optionsValues.proAccelHighPolicy",
+            "signatureSelect": ""
+        },
+        {
+            "value": "proAccelHighMedium",
+            "i18nLabel": "createPolicy.optionsValues.ProAccelHighMediumPolicy",
+            "signatureSelect": ""
+        },
+        {
+            "value": "proAccelLow",
+            "i18nLabel": "createPolicy.optionsValues.proAccelLowPolicy",
+            "signatureSelect": ""
+        },
+        {
+            "value": "proAccelCustom",
+            "i18nLabel": "createPolicy.optionsValues.proAccelCustomPolicy",
+            "signatureSelect": "signatures"
+        }
+    ],
+
+    "policyDeploymentModes": [
+        {
+            "value": "ips",
+            "i18nLabel": "applyPolicyModal.deploymentIPS"
+        },
+        {
+            "value": "ids",
+            "i18nLabel": "applyPolicyModal.deploymentIDS"
+        },
+        {
+            "value": "onearm",
+            "i18nLabel": "applyPolicyModal.deploymentOneArm"
+        }
+    ],
+
+    "policyActions": [
+        {
+            "value": "alert",
+            "weight": 0,
+            "i18nLabel": "applyPolicyModal.alert"
+        },
+        {
+            "value": "block",
+            "weight": 1,
+            "i18nLabel": "applyPolicyModal.block"
+        }
+    ],
+
+    "signatureActions": [
+        {
+            "value": "pass",
+            "i18nLabel": "createPolicy.AddNewSignatureValues.pass"
+        },
+        {
+            "value": "drop",
+            "i18nLabel": "createPolicy.AddNewSignatureValues.drop"
+        },
+        {
+            "value": "reject",
+            "i18nLabel": "createPolicy.AddNewSignatureValues.reject"
+        },
+        {
+            "value": "alert",
+            "i18nLabel": "createPolicy.AddNewSignatureValues.alert"
+        },
+        {
+            "value": "log",
+            "i18nLabel": "createPolicy.AddNewSignatureValues.log"
+        },
+        {
+            "value": "activate",
+            "i18nLabel": "createPolicy.AddNewSignatureValues.activate"
+        },
+        {
+            "value": "dynamic",
+            "i18nLabel": "createPolicy.AddNewSignatureValues.dynamic"
+        },
+        {
+            "value": "sdrop",
+            "i18nLabel": "createPolicy.AddNewSignatureValues.sdrop"
+        }
+    ],
+
+    "signatureHelpLinks": [
+        {
+            "flowControlLink": "https://redmine.openinfosecfoundation.org/projects/suricata/wiki/Flow-keywords"
+        },
+        {
+            "contentLink": "https://redmine.openinfosecfoundation.org/projects/suricata/wiki/Payload_keywords"
+        }
+    ],
+
+    "flowControlKeywords": [
+        {
+            "value": "flowbits",
+            "format": "int"
+        },
+        {
+            "value": "flow",
+            "format": "int"
+        },
+        {
+            "value": "flowint",
+            "format": "int"
+        },
+        {
+            "value": "stream_size",
+            "format": "int"
+        }
+    ],
+
+    "contentKeywords": [
+        {
+            "value": "content",
+            "format": "str"
+        },
+        {
+            "value": "nocase",
+            "format": "none"
+        },
+        {
+            "value": "depth",
+            "format": "int"
+        },
+        {
+            "value": "offset",
+            "format": "int"
+        },
+        {
+            "value": "distance",
+            "format": "int"
+        },
+        {
+            "value": "within",
+            "format": "int"
+        },
+        {
+            "value": "isdataat",
+            "format": "int"
+        },
+        {
+            "value": "relative",
+            "format": "none"
+        },
+        {
+            "value": "dsize",
+            "format": "int"
+        },
+        {
+            "value": "rpc",
+            "format": "int"
+        },
+        {
+            "value": "replace",
+            "format": "str"
+        },
+        {
+            "value": "pcre",
+            "format": "str"
+        },
+        {
+            "value": "fast_pattern",
+            "format": "none"
+        }
+    ],
+
+    "signatureSeverityRanges": [
+        {"minValue": 1, "maxValue": 75, "priority": 1, "levelName": "high"},
+        {"minValue": 76, "maxValue": 150, "priority": 2, "levelName": "medium"},
+        {"minValue": 151, "maxValue": 255, "priority": 3, "levelName": "low"}
+    ]
+}

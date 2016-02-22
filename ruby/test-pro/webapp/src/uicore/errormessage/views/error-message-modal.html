@@ -1,0 +1,25 @@
+<div class="modal-header error-message">
+    <h4 class="modal-title">
+        {{::messageObject.title | i18next}}
+    </h4>
+</div>
+<div class="modal-body">
+
+    <div>
+        <span class="modal-title">{{::messageObject.text | i18next}}</span>
+    </div>
+
+    <div ng-if="messageObject.msg.length > 0">
+        <div class="errorMsgDetailsLnkContainer">
+            <a href ng-model="collapsed" ng-click="collapsed=!collapsed">{{::'common.moreDetails' | i18next}}</a>
+        </div>
+
+        <div ng-show="collapsed" ng-bind-html="trustedHtmlMassage(messageObject.msg)"></div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" ng-click="closeErrorMessageModal()">
+        {{::'common.closeTxt' | i18next}}
+    </button>
+</div>

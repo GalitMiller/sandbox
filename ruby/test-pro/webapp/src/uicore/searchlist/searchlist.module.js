@@ -1,0 +1,1 @@
+angular.module("bricata.uicore.searchlist", ["jm.i18next", "angularMoment"]);

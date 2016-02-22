@@ -1,0 +1,44 @@
+# Flask -----------------------------------------------------------------------
+Flask==0.10.1
+Flask-Cache==0.13.1
+Flask-Celery-Helper==1.1.0
+Flask-Login==0.2.11
+Flask-SQLAlchemy==2.0
+# Flask-Restless:
+-e git+http://vm162783.projects.local/bricata/flask-restless.git@ff9aced6904f1e580ea55829e0302547fe99545c#egg=Flask-Restless
+
+# DB --------------------------------------------------------------------------
+MySQL-python==1.2.5
+SQLAlchemy==0.9.9
+SQLAlchemy-Continuum==1.1.5
+SQLAlchemy-Utils==0.30.0
+Flask-Migrate==1.4.0
+
+# Other -----------------------------------------------------------------------
+awesome-slugify==1.6.4
+celery==3.1.17
+colour==0.1.1
+funcy==1.5
+GitPython==1.0.1
+inflection==0.3.1
+isotopic-logging==1.0.1
+logsna==1.2
+netifaces==0.10.4
+paramiko==1.15.2
+pyasn1==0.1.7
+pytz==2015.4
+redis==2.10.3
+schematics==1.0.4
+scp==0.10.0
+SuperDict==1.0.3
+ujson==1.33
+Unipath==1.1
+
+# Tools -----------------------------------------------------------------------
+bpython==0.13
+Flask-Script==2.0.5
+invoke==0.10.1
+pylint==1.4.3
+
+# Includes --------------------------------------------------------------------
+-r tests.txt

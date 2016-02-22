@@ -1,0 +1,22 @@
+{
+    "num_results": 3,
+    "objects": [
+        {
+            "id": 1,
+            "name": "Imported",
+            "signatures_count": 61
+        },
+        {
+            "id": 2,
+            "name": "Primary category",
+            "signatures_count": 61
+        },
+        {
+            "id": 3,
+            "name": "Secondary category",
+            "signatures_count": 61
+        }
+    ],
+    "page": 1,
+    "total_pages": 0
+}

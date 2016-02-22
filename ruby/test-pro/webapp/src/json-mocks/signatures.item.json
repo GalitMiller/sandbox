@@ -1,0 +1,45 @@
+{
+    "action": "pass",
+    "author": {
+        "active": true,
+        "login": "bricata",
+        "name": "Administrator",
+        "role": "admin"
+    },
+    "author_id": 1,
+    "category": {
+        "id": 1,
+        "name": "Botcc"
+    },
+    "category_id": 1,
+    "class_type": null,
+    "content_control": "",
+    "created_at": "2015-06-15T08:30:46",
+    "dst_host": null,
+    "dst_port": null,
+    "flow_control": "",
+    "gid": 1,
+    "id": 26083,
+    "is_bidirectional": false,
+    "is_editable": true,
+    "message": "sasa",
+    "name": "test new",
+    "priority": null,
+    "protocol": {
+        "id": 4,
+        "name": "dns"
+    },
+    "references": [],
+    "revision": 1,
+    "severity": {
+        "bg_color": "#FFF",
+        "id": 1,
+        "is_predefined": true,
+        "name": "High",
+        "text_color": "#F00",
+        "weight": 20
+    },
+    "sid": 2015061501,
+    "src_host": null,
+    "src_port": null
+}

@@ -1,0 +1,1 @@
+angular.module("bricata.ui.userinfo", []);

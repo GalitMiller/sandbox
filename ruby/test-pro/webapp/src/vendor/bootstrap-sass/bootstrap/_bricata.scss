@@ -1,0 +1,154 @@
+//
+// Bricata Custom Styling
+// Customizing standard Bootstrap stylesheets
+// --------------------------------------------------
+
+$brand-primary: darken(#222729, 6.5%);
+
+$brand-warning: #e48833 !default;
+
+$border-radius-base: 2px !default;
+$border-radius-small: 2px !default;
+$border-radius-large: 2px !default;
+
+$table-bg-hover: #222729 !default;
+$font-size-base: 13px !default;
+
+.table-hover {
+  > tbody > tr:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+$btn-primary-bg: #4277c4;
+$btn-primary-border: darken($btn-primary-bg, 5%) !default;
+
+$tooltip-bg: #4277C4 !default;
+$tooltip-opacity: 1.0 !default;
+
+$dropdown-link-active-bg: #1e90ff !default;
+$cursor-disabled: default !default;
+$zindex-dropdown: 1090 !default;
+$zindex-tooltip: 1095 !default;
+
+$label-info-bg: #D8EDF7 !default;
+$label-danger-bg: #F2DEDE !default;
+$txt-info-color:  darken($label-info-bg, 45%);
+$txt-error-color:  darken($label-danger-bg, 45%);
+
+.modal-backdrop {
+  position: fixed;
+  bottom: 0;
+}
+
+.well {
+  padding: 10px;
+}
+
+.tooltip-inner {
+  word-wrap: break-word;
+}
+
+// Actual modal
+.modal-content {
+  border: none !important;
+}
+
+.label {
+  border-radius: 0;
+  padding: 10px 25px;
+}
+
+.label-info, .txt-info {
+  color: $txt-info-color;
+}
+
+.label-danger, .txt-error {
+  color: $txt-error-color;
+}
+
+//non responsive for now
+body, .navbar-fixed-top, .navbar-fixed-bottom {
+  min-width: 1170px;
+}
+
+.container {
+  max-width: none !important;
+  width: 1170px;
+}
+
+.form-inline  {
+  .form-group{
+    display:inline-block;
+    width: auto;
+  }
+}
+//end non responsive
+
+//override inline form
+.form-inline {
+  .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  // In navbar-form, allow folks to *not* use `.form-group`
+  .form-control {
+    display: inline-block;
+    width: auto; // Prevent labels from stacking above inputs in `.form-group`
+    vertical-align: middle;
+  }
+
+  // Make static controls behave like regular ones
+  .form-control-static {
+    display: inline-block;
+  }
+
+  .input-group {
+    display: inline-table;
+    vertical-align: middle;
+
+    .input-group-addon,
+    .input-group-btn,
+    .form-control {
+      width: auto;
+    }
+  }
+
+  // Input groups need that 100% width though
+  .input-group > .form-control {
+    width: 100%;
+  }
+
+  .control-label {
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  // Remove default margin on radios/checkboxes that were used for stacking, and
+  // then undo the floating of radios and checkboxes to match.
+  .radio,
+  .checkbox {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+
+    label {
+      padding-left: 0;
+    }
+  }
+  .radio input[type="radio"],
+  .checkbox input[type="checkbox"] {
+    position: relative;
+    margin-left: 0;
+  }
+
+  // Re-override the feedback icon.
+  .has-feedback .form-control-feedback {
+    top: 0;
+  }
+}
+//end override inline form
