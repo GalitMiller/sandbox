@@ -1,3 +1,0 @@
-Defaults: cmcadmin !requiretty
-
-cmcadmin  ALL=(ALL)       NOPASSWD:ALL

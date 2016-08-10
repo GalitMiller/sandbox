@@ -1,4 +1,0 @@
-{
-    "message": "It seems that either SSH connection to this sensor is not allowed or there was some unexpected issue when CMC tried to take control over the device. Please, log in the sensor's shell and manually run the following command: \"curl -sSL https://cmc/get/conf.sh | bash\"",
-    "succeed": true
-}

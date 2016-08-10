@@ -1,8 +1,0 @@
-/var/log/oinkmaster-updater-nightly.log {
-    weekly
-    missingok
-    notifempty
-    rotate 5
-    size=1M    
-}
-
