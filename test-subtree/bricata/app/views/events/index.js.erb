@@ -1,5 +1,0 @@
-$('div#events').replaceWith("<%= escape_javascript(render(:partial => 'events/events', :locals => { :events => @events })) %>");
-
-Bricata.helpers.remove_click_events(false);
-Bricata.helpers.recheck_selected_events();
-flash();

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-(( $(ps ax | awk '{ print $5 }' | grep 'delayed_job' | wc -l ) > 0 )) || {
-  /usr/sbin/service bpac-bricata-workers stop && sleep 5 && /usr/sbin/service bpac-bricata-workers start >&2
-}

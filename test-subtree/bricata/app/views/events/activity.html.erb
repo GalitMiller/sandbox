@@ -1,5 +1,0 @@
-<%= title "#{@user.name}'s Event Queue <i>(#{pluralize(@events.count, 'event')} in queue)</i>".html_safe, "#{@user.name}'s Event Queue" do %>
-	<%= render :partial => 'events/menu' %>
-<% end %>
-
-<%= render :partial => 'events/events' %>
