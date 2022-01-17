@@ -2,12 +2,11 @@
 //  main.cpp
 //  LinkedList
 //
-//  Created by Lesley Miller on 10/18/15.
-//  Copyright (c) 2022 Lesley Miller. All rights reserved.
+//  Created by Lesley Miller on 1/17/22.
 //
 
 #include <iostream>
-#include "math.h"
+// #include "math.h"
 
 struct node {
     int data;
