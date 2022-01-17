@@ -6,7 +6,6 @@
 //
 
 #include <iostream>
-// #include "math.h"
 
 struct node {
     int data;
